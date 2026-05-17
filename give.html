@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="header.css">
+    <style> /* Only styles for the giving content – header & top bar are handled by external CSS */ * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; } :root { --primary: #00028b; --secondary: #2422b2; --accent: #DC143C; --light: #FFE5E5; --dark: #00025a; --gold: #FFD700; --white: #FFFFFF; --gray: #F5F5F5; } body { background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%); color: var(--white); min-height: 100vh; } /* Main Content */ .main-content { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; min-height: calc(100vh - 136px); /* adjust based on header height */ margin-top: calc(var(--top-bar-height) + var(--header-height)); } /* Basic container */ .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; } .container { max-width: 800px; width: 100%; background: rgba(255, 255, 255, 0.95); border-radius: 20px; overflow: hidden; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); } .header-section { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); padding: 30px; text-align: center; position: relative; overflow: hidden; } .header-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>'); background-size: cover; } .logo-giving { font-size: 2.5rem; margin-bottom: 10px; color: var(--white); } h1 { font-size: 2.2rem; margin-bottom: 10px; color: var(--white); } .subtitle { font-size: 1.1rem; opacity: 0.9; color: var(--light); } .content { padding: 40px; color: #070606; } .intro-text { font-size: 1.2rem; line-height: 1.6; margin-bottom: 30px; text-align: center; color: #070606; } .scripture-card { background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%); border-radius: 15px; padding: 30px; margin-bottom: 40px; text-align: center; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); position: relative; overflow: hidden; color: var(--white); } .scripture-card::before { content: '"'; position: absolute; top: 10px; left: 20px; font-size: 5rem; color: rgba(255, 255, 255, 0.3); font-family: Georgia, serif; } .verse { font-size: 1.4rem; font-style: italic; line-height: 1.6; margin-bottom: 15px; position: relative; z-index: 1; } .reference { font-size: 1.1rem; font-weight: 600; color: var(--gold); } .giving-section { background: var(--gray); border-radius: 15px; padding: 30px; margin-bottom: 30px; } .section-title { font-size: 1.8rem; margin-bottom: 25px; text-align: center; color: var(--primary); position: relative; } .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: var(--accent); border-radius: 3px; } /* Stack payment methods vertically (Mobile then Bank) */ .payment-methods { display: flex; flex-direction: column; gap: 25px; margin-top: 30px; } .payment-card { background: var(--white); border-radius: 12px; padding: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid #E0E0E0; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); } .payment-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(139, 0, 0, 0.15); } .payment-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; text-align: center; } .payment-title { font-size: 1.4rem; margin-bottom: 20px; text-align: center; color: var(--primary); } .payment-details { margin-bottom: 20px; } .detail-row { display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #F0F0F0; } .detail-label { font-weight: 600; color: #555; } .detail-value { font-weight: 500; color: #222; } .copy-btn { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; border: none; padding: 12px 15px; border-radius: 8px; cursor: pointer; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; transition: all 0.3s ease; } .copy-btn:hover { background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%); transform: translateY(-2px); } .copy-btn.copied { background: var(--accent); } .instructions { margin-top: 30px; padding: 20px; background: var(--white); border-radius: 12px; border-left: 4px solid var(--primary); color: #555; } .instructions h3 { margin-bottom: 15px; color: var(--primary); } .instructions ol { padding-left: 20px; } .instructions li { margin-bottom: 10px; line-height: 1.5; } .instructions strong { color: var(--primary); } .footer { text-align: center; padding: 20px; margin-top: 20px; color: #666; font-size: 0.9rem; border-top: 1px solid #E0E0E0; } @media (max-width: 768px) { .main-content { margin-top: calc(var(--top-bar-height) + var(--header-height) + 10px); padding: 20px 15px; } h1 { font-size: 1.8rem; } .content { padding: 25px; } .payment-methods { grid-template-columns: 1fr; } .verse { font-size: 1.2rem; } } </style>
+</head>
+<body>
+
+    <!-- Top Contact Bar (styling comes from external CSS) -->
+    <div class="top-contact-bar">
+        <div class="container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>+254 0724282947</span>
+                    <span>+254 0720118672</span>
+                    <span class="contact-icon">✉️</span>
+                    <span>jhsmkenya@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header (styling from external CSS) -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <!-- make sure the image path is correct -->
+                <img src="images/CIRLE L.png" alt="Church Logo" class="logo-img">
+                <span class="logo-text">Jesus Healing Sanctuary Ministries</span>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="sermons.html">Sermons</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="mission.html">Mission</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content (giving form) -->
+      <div class="main-content"> 
+        <div class="container"> 
+            <div class="header-section"> 
+                <div class="logo-giving"> 
+                    <i class="fas fa-hands-helping"></i> 
+                    </div> 
+                    <h1>Giving & Partnership</h1> 
+                    <p class="subtitle">Supporting the Mission of JHSM International</p> 
+                    </div> 
+                    <div class="content"> 
+                        <p class="intro-text"> Thank you for your generous heart and willingness to support the work of God through JHSM International. Your giving enables us to spread the Gospel and transform lives. </p> 
+                        <div class="scripture-card">
+                             <div class="verse">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."
+
+                             </div> 
+                             <div class="reference">- 2 Corinthians 9:7</div> 
+                             </div> 
+                             <div class="giving-section"> 
+                                <h2 class="section-title">Payment Methods</h2> 
+                                <div class="payment-methods"> 
+                                    <!-- Mobile Money Card --> 
+                                     <div class="payment-card"> 
+                                        <div class="payment-icon">
+                                            <i class="fas fa-mobile-alt"></i>
+                                            </div> 
+                                            <h3 class="payment-title">Mobile Money</h3>
+                                             <div class="payment-details"> 
+                                                <div class="detail-row"> 
+                                                    <span class="detail-label">Paybill Number:</span> 
+                                                    <span class="detail-value">247247</span>
+                                                    </div> 
+                                                    <div class="detail-row"> 
+                                                        <span class="detail-label">Account Number:</span> 
+                                                        <span class="detail-value">1100281008321</span> 
+                                                        </div> 
+                                                        <div class="detail-row"> 
+                                                            <span class="detail-label">Account Name:</span> 
+                                                            <span class="detail-value">MISSION</span> 
+                                                            </div>
+                                                             </div> 
+                                                             <button class="copy-btn" data-copy="1100281008321"> 
+                                                                <i class="far fa-copy"></i> Copy Account Number </button>
+                                                                 </div> 
+                                                                 <!-- Bank Transfer Card --> 
+                                                                  <div class="payment-card"> 
+                                                                    <div class="payment-icon">
+                                                                        <i class="fas fa-university"></i> 
+                                                                    </div>
+                                                                <h3 class="payment-title">Bank Transfer</h3> 
+                                                                <div class="payment-details"> 
+                                                                    <div class="detail-row"> 
+                                                                        <span class="detail-label">Bank Name:</span> 
+                                                                        <span class="detail-value">Equity Bank</span> 
+                                                                        </div> 
+                                                                        <div class="detail-row"> 
+                                                                            <span class="detail-label">Account Number:</span> 
+                                                                            <span class="detail-value">1100281008321</span> 
+                                                                            </div> 
+                                                                            <div class="detail-row"> 
+                                                                        <span class="detail-label">Account Name:</span>
+                                                                        <span class="detail-value">MISSION</span>
+                                                                        </div> 
+                                                                        <div class="detail-row"> 
+                                                                        <span class="detail-label">Branch Code:</span>
+                                                                        <span class="detail-value">110</span> 
+                                                                        </div> 
+                                                                        </div> 
+                                                                        <button class="copy-btn" data-copy="1100281008321"> 
+                                                                            <i class="far fa-copy"></i> Copy Account Number </button> 
+                                                                            </div>
+                                                                             </div>
+                                                                             <div class="instructions"> 
+                                                                                <h3>How to Give via Mobile Money:</h3> 
+                                                                                <ol> <li>Go to your mobile money menu on your phone</li> 
+                                                                                     <li>Select "Lipa na M-Pesa" option</li> 
+                                                                                     <li>Select "Pay Bill" option</li> 
+                                                                                     <li>Enter the Paybill Number: <strong>247247</strong></li> 
+                                                                                     <li>Enter Account Number: <strong>1100281008321</strong></li> 
+                                                                                     <li>Enter the amount you wish to give</li> 
+                                                                                     <li>Enter your PIN and confirm the transaction</li> 
+                                                                                     <li>You will receive a confirmation message</li> 
+                                                                                     </ol> </div> </div> </div> <div class="footer"> 
+                                                                                        <p>Thank you for your generous support. May God bless you abundantly.</p> 
+                                                                                        <p>For any questions, contact us at: jhsm@gmail.com | +254 724 282 947</p> 
+                                                                                        </div> 
+                                                                                        </div> 
+                                                                                        </div>
+<script> document.addEventListener('DOMContentLoaded', function() { 
+    // Copy functionality 
+    const copyButtons = document.querySelectorAll('.copy-btn'); 
+    copyButtons.forEach(button => { button.addEventListener('click', function() { const textToCopy = this.getAttribute('data-copy');
+    const originalText = this.innerHTML; 
+    navigator.clipboard.writeText(textToCopy).then(() => { this.innerHTML = '<i class="fas fa-check"></i> Copied!'; 
+    this.classList.add('copied'); 
+    setTimeout(() => {
+        this.innerHTML = originalText; 
+        this.classList.remove('copied');
+    }, 2000);
+     }).catch(err => { console.error('Failed to copy: ', err);
+     this.innerHTML = '<i class="fas fa-times"></i> Failed';
+     setTimeout(() => {
+         this.innerHTML = originalText;
+         this.classList.remove('copied');
+         }, 2000); 
+        }); 
+    }); 
+}); 
+// Mobile menu toggle 
+const mobileMenu = document.querySelector('.mobile-menu');
+const navigation = document.querySelector('.navigation ul');
+mobileMenu.addEventListener('click', function() { navigation.classList.toggle('active');     
+}); 
+}); 
+</script>
+
+<footer class="new-footer">
+    <div class="footer-container">
+        <!-- Row 1: Bible verse -->
+        <div class="footer-verse">
+            “For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.” – Jeremiah 29:11
+        </div>
+
+        <!-- Row 2: Social media icons -->
+        <div class="footer-social">
+            <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://tiktok.com/yourpage" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/yourpage" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <!-- Row 3: Ministry name and copyright -->
+        <div class="footer-copyright">
+            <div class="ministry-name">JESUS HEALING SANCTUARY MINISTRIES</div>
+            <div class="copyright">© 2026 Jesus Healing Sanctuary Ministries. All rights reserved.</div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men of Zion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700&family=Source+Serif+4:wght@300;400;600&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="header.css">
+    <style>
+        /* ─── Reset & Root ─────────────────────────────── */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:      #0B1D35;
+            --deep:      #071326;
+            --steel:     #1C3A5C;
+            --slate:     #2D4A6B;
+            --copper:    #B8960C;
+            --amber:     #D4AF37;
+            --gold-line: #F0D060;
+            --ash:       #8A9BB0;
+            --silver:    #C5CDD8;
+            --offwhite:  #F2F0EC;
+            --white:     #FAFBFC;
+        }
+
+        body {
+            font-family: 'Source Serif 4', serif;
+            background-color: var(--deep);
+            color: var(--offwhite);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        section { padding: 90px 0; }
+
+        h1, h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        h4, h5 {
+            font-family: 'Barlow Condensed', sans-serif;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.6rem;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .section-title span { color: var(--amber); }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--copper);
+            margin: 18px auto 0;
+        }
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 1px;
+            background: var(--slate);
+            margin: 0 auto 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background: transparent;
+            color: var(--amber);
+            border: 2px solid var(--copper);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s ease;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--copper);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            z-index: -1;
+        }
+        .btn:hover { color: var(--deep); }
+        .btn:hover::before { transform: scaleX(1); }
+
+        /* ─── Top Contact Bar (reuse from women's page) ─ */
+        .top-contact-bar {
+            background: var(--navy);
+            border-bottom: 1px solid var(--steel);
+            padding: 8px 0;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.9rem;
+            color: var(--silver);
+        }
+
+        /* ─── Hero ──────────────────────────────────────── */
+        .hero-section {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(160deg, rgba(7,19,38,0.92) 40%, rgba(184,115,51,0.25) 100%),
+                url('https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center 30%;
+        }
+
+        /* Diagonal overlay */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 120px;
+            background: var(--deep);
+            clip-path: polygon(0 100%, 100% 100%, 100% 0);
+        }
+
+        /* Vertical accent line */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            left: 80px; top: 0; bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--copper), transparent);
+            opacity: 0.6;
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 0 0 120px 100px;
+            max-width: 900px;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.3em;
+            color: var(--copper);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .hero-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 40px;
+            height: 1px;
+            background: var(--copper);
+        }
+
+        .hero-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3.5rem, 8vw, 6.5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--white);
+            margin-bottom: 30px;
+        }
+        .hero-title span {
+            color: var(--amber);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.35rem;
+            color: var(--silver);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            max-width: 500px;
+            border-left: 3px solid var(--copper);
+            padding-left: 18px;
+            line-height: 1.5;
+        }
+
+        /* ─── About ─────────────────────────────────────── */
+        .about-section {
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-section::before {
+            content: 'IRON';
+            position: absolute;
+            right: -40px; top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            font-family: 'Oswald', sans-serif;
+            font-size: 14rem;
+            font-weight: 700;
+            color: var(--steel);
+            opacity: 0.12;
+            pointer-events: none;
+            letter-spacing: 0.2em;
+        }
+
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-image-block {
+            position: relative;
+        }
+
+        .about-img-main {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(20%) contrast(1.1);
+        }
+
+        /* Corner brackets */
+        .about-image-block::before,
+        .about-image-block::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-color: var(--copper);
+            border-style: solid;
+            z-index: 2;
+        }
+        .about-image-block::before {
+            top: -12px; left: -12px;
+            border-width: 3px 0 0 3px;
+        }
+        .about-image-block::after {
+            bottom: -12px; right: -12px;
+            border-width: 0 3px 3px 0;
+        }
+
+        .accent-badge {
+            position: absolute;
+            bottom: -20px;
+            left: 30px;
+            background: var(--copper);
+            color: var(--deep);
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 10px 24px;
+            font-weight: 600;
+            z-index: 3;
+        }
+
+        .about-content h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 24px;
+        }
+        .about-content h3 span { color: var(--amber); }
+
+        .about-content p {
+            font-size: 1.05rem;
+            color: var(--silver);
+            margin-bottom: 22px;
+            line-height: 1.8;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 40px;
+            margin-top: 36px;
+            padding-top: 36px;
+            border-top: 1px solid var(--steel);
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--amber);
+            display: block;
+            line-height: 1;
+        }
+        .stat-label {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.85rem;
+            color: var(--ash);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: 6px;
+            display: block;
+        }
+
+        /* ─── Pillars ────────────────────────────────────── */
+        .pillars-section {
+            background: var(--deep);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: var(--steel);
+        }
+
+        .pillar-card {
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        .pillar-card:hover { background: var(--steel); }
+
+        .pillar-image {
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+        .pillar-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(60%) brightness(0.5);
+            transition: all 0.5s ease;
+        }
+        .pillar-card:hover .pillar-image img {
+            filter: grayscale(20%) brightness(0.7);
+            transform: scale(1.08);
+        }
+
+        .pillar-num {
+            position: absolute;
+            top: 20px; left: 20px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--copper);
+            opacity: 0.5;
+            line-height: 1;
+            z-index: 2;
+            transition: opacity 0.3s ease;
+        }
+        .pillar-card:hover .pillar-num { opacity: 0.9; }
+
+        .pillar-label {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(7,19,38,0.95));
+            padding: 40px 20px 18px;
+            z-index: 2;
+        }
+        .pillar-label h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            color: var(--amber);
+            letter-spacing: 0.1em;
+        }
+
+        .pillar-content {
+            padding: 20px 24px 28px;
+            border-top: 2px solid var(--copper);
+        }
+        .pillar-content p {
+            font-size: 0.95rem;
+            color: var(--ash);
+            line-height: 1.7;
+        }
+
+        /* ─── Creed / Verse Section ────────────────────── */
+        .creed-section {
+            background: var(--steel);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .creed-section::before {
+            content: '"';
+            position: absolute;
+            left: -30px; top: -60px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 30rem;
+            color: var(--navy);
+            opacity: 0.4;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .creed-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .creed-verse {
+            font-family: 'Source Serif 4', serif;
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .creed-ref {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.25em;
+            color: var(--copper);
+            text-transform: uppercase;
+        }
+        .creed-divider {
+            width: 80px;
+            height: 3px;
+            background: var(--copper);
+            margin: 24px auto;
+        }
+
+        /* ─── Objectives ─────────────────────────────────── */
+        .objectives-section {
+            background: var(--navy);
+            position: relative;
+        }
+        .objectives-section::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(to right, transparent, var(--copper), var(--amber), transparent);
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .objective-card {
+            background: var(--deep);
+            border: 1px solid var(--steel);
+            padding: 36px 28px;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .objective-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--copper);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+        }
+        .objective-card:hover { border-color: var(--copper); transform: translateY(-4px); }
+        .objective-card:hover::before { transform: scaleY(1); }
+
+        .obj-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--steel);
+            line-height: 1;
+            margin-bottom: 16px;
+            transition: color 0.3s ease;
+        }
+        .objective-card:hover .obj-number { color: var(--copper); }
+
+        .objective-card h4 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.2rem;
+            color: var(--white);
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+        .objective-card p {
+            font-size: 0.92rem;
+            color: var(--ash);
+            line-height: 1.7;
+        }
+
+        /* ─── Programs ───────────────────────────────────── */
+        .programs-section {
+            background: var(--deep);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .program-card {
+            background: var(--navy);
+            border-top: 4px solid var(--copper);
+            padding: 36px 28px;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .program-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 80px; height: 80px;
+            background: var(--steel);
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+        }
+        .program-card:hover { transform: translateY(-6px); background: var(--steel); }
+        .program-card:hover::after { opacity: 0.7; }
+
+        .program-icon {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .program-card h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            color: var(--amber);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .program-card p {
+            font-size: 0.92rem;
+            color: var(--ash);
+            line-height: 1.7;
+        }
+
+        /* ─── Gallery ────────────────────────────────────── */
+        .gallery-section {
+            background: var(--navy);
+            padding: 90px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 240px 240px;
+            gap: 6px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .gallery-item:first-child {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+        }
+        .gallery-item:nth-child(4) {
+            grid-column: 3 / 5;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(30%) brightness(0.75);
+            transition: all 0.5s ease;
+        }
+        .gallery-item:hover img {
+            filter: grayscale(0%) brightness(0.9);
+            transform: scale(1.06);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 50%, rgba(7,19,38,0.9));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 18px;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        .gallery-caption {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.2em;
+            color: var(--amber);
+            text-transform: uppercase;
+        }
+
+        /* Decorative corner */
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 30px; height: 30px;
+            border-top: 2px solid var(--copper);
+            border-left: 2px solid var(--copper);
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover::before { opacity: 1; }
+
+        /* ─── CTA / Join ─────────────────────────────────── */
+        .cta-section {
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0;
+            background: var(--deep);
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(rgba(7,19,38,0.85), rgba(7,19,38,0.9)),
+                url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Diagonal cut-in */
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100px;
+            background: var(--navy);
+            clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .cta-eyebrow {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.4em;
+            color: var(--copper);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .cta-section h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+        .cta-section h2 span { color: var(--amber); }
+        .cta-section p {
+            font-size: 1.1rem;
+            color: var(--silver);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        /* ─── Footer (reused from women's page) ─────────── */
+        .new-footer {
+            background: var(--deep);
+            border-top: 3px solid var(--copper);
+            padding: 40px 0 24px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            text-align: center;
+        }
+        .footer-verse {
+            font-family: 'Source Serif 4', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--ash);
+            max-width: 680px;
+            margin: 0 auto 28px;
+            line-height: 1.7;
+            border-left: 3px solid var(--copper);
+            text-align: left;
+            padding-left: 18px;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px; height: 42px;
+            border: 1px solid var(--steel);
+            color: var(--ash);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .footer-social a:hover {
+            border-color: var(--copper);
+            color: var(--amber);
+            background: var(--steel);
+        }
+        .footer-copyright {
+            border-top: 1px solid var(--steel);
+            padding-top: 20px;
+        }
+        .ministry-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.2em;
+            color: var(--amber);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .copyright {
+            font-size: 0.85rem;
+            color: var(--ash);
+        }
+
+        /* ─── Responsive ─────────────────────────────────── */
+        @media (max-width: 992px) {
+            .about-wrapper { grid-template-columns: 1fr; gap: 60px; }
+            .about-image-block { max-width: 560px; }
+            .pillars-grid,
+            .objectives-grid,
+            .programs-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+            .gallery-item:first-child { grid-column: 1 / 3; grid-row: auto; }
+            .gallery-item:nth-child(4) { grid-column: auto; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content { padding: 0 24px 100px; }
+            .hero-section::before { display: none; }
+            .pillars-grid,
+            .objectives-grid,
+            .programs-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+            .gallery-item:first-child { grid-column: auto; height: 220px; }
+            .stat-row { flex-wrap: wrap; gap: 24px; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── Top Contact Bar ─────────────────────── -->
+    <div class="top-contact-bar" style="background:#071326;border-bottom:1px solid #1C3A5C;padding:8px 0;font-family:'Rajdhani',sans-serif;font-size:0.9rem;color:#C5CDD8;">
+        <div class="container">
+            <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+                <span>📞 +254 0724282947</span>
+                <span>+254 0720118672</span>
+                <span>✉️ jhsmkenya@gmail.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Header ─────────────────────────────── -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/CIRLE L.png" alt="Church Logo" class="logo-img">
+                <span class="logo-text">Jesus Healing Sanctuary Ministries</span>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="sermons.html">Sermons</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="mission.html">Mission</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+    <!-- ── Hero ───────────────────────────────── -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-eyebrow">Jesus Healing Sanctuary Ministries</div>
+                <h1 class="hero-title">
+                    Men of
+                    <span>Zion</span>
+                </h1>
+                <p class="hero-subtitle">Forged in Faith. Built for Purpose. Sharpened as Iron.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── About ──────────────────────────────── -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-image-block">
+                    <img src="images/men.jpg" alt="Men in fellowship" class="about-img-main">
+                    <div class="accent-badge">Est. JHSM</div>
+                </div>
+                <div class="about-content">
+                    <h3>Who We Are &amp; <span>Our Mission</span></h3>
+                    <p>Men of Zion is a brotherhood of men committed to walking boldly in the truth of God's Word. We are men of faith who stand firm in purpose, lead with integrity, and sharpen one another in spirit and character.</p>
+                    <p>Rooted in scripture and built on accountability, this fellowship exists to raise men who are pillars in their homes, beacons in their workplaces, and warriors in the Kingdom of God. We believe that a man transformed by Christ transforms everything around him.</p>
+                    <div class="stat-row">
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Brothers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">6</span>
+                            <span class="stat-label">Pillars</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1</span>
+                            <span class="stat-label">Mission</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Pillars ────────────────────────────── -->
+    <section class="pillars-section">
+        <div class="container">
+            <h2 class="section-title">Pillars of <span>Men of Zion</span></h2>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-image">
+                        <img src="images/faith.jpg" alt="Faith">
+                        <div class="pillar-num">01</div>
+                        <div class="pillar-label"><h4>Faith</h4></div>
+                    </div>
+                    <div class="pillar-content">
+                        <p>Standing firm on the promises of God even when the path ahead is unclear.</p>
+                    </div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-image">
+                        <img src="images/love.jpg" alt="Integrity">
+                        <div class="pillar-num">02</div>
+                        <div class="pillar-label"><h4>Integrity</h4></div>
+                    </div>
+                    <div class="pillar-content">
+                        <p>Living with honesty and consistency in every role and responsibility.</p>
+                    </div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-image">
+                        <img src="images/peace.jpg" alt="Accountability">
+                        <div class="pillar-num">03</div>
+                        <div class="pillar-label"><h4>Accountability</h4></div>
+                    </div>
+                    <div class="pillar-content">
+                        <p>Iron sharpens iron — we challenge one another to grow and remain true.</p>
+                    </div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-image">
+                        <img src="images/patience.jpg" alt="Leadership">
+                        <div class="pillar-num">04</div>
+                        <div class="pillar-label"><h4>Leadership</h4></div>
+                    </div>
+                    <div class="pillar-content">
+                        <p>Stepping up as servant leaders in home, church, and community.</p>
+                    </div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-image">
+                        <img src="images/kindness.jpg" alt="Courage">
+                        <div class="pillar-num">05</div>
+                        <div class="pillar-label"><h4>Courage</h4></div>
+                    </div>
+                    <div class="pillar-content">
+                        <p>Facing every challenge with the strength that comes from Christ.</p>
+                    </div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-image">
+                        <img src="images/humility.jpg" alt="Wisdom">
+                        <div class="pillar-num">06</div>
+                        <div class="pillar-label"><h4>Wisdom</h4></div>
+                    </div>
+                    <div class="pillar-content">
+                        <p>Anchoring our decisions in the Word and the counsel of the Holy Spirit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Creed / Verse ──────────────────────── -->
+    <section class="creed-section">
+        <div class="creed-content">
+            <div class="creed-ref">Our Anchor Verse</div>
+            <div class="creed-divider"></div>
+            <p class="creed-verse">"As iron sharpens iron, so one person sharpens another."</p>
+            <div class="creed-divider"></div>
+            <div class="creed-ref">Proverbs 27 : 17</div>
+        </div>
+    </section>
+
+    <!-- ── Objectives ─────────────────────────── -->
+    <section class="objectives-section">
+        <div class="container">
+            <h2 class="section-title">Core <span>Objectives</span></h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <div class="obj-number">01</div>
+                    <h4>Spiritual Formation</h4>
+                    <p>Ground men in the Word of God, prayer, and a consistent devotional life that fuels purpose.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="obj-number">02</div>
+                    <h4>Godly Leadership</h4>
+                    <p>Equip men to lead their families, workplaces, and communities with Christ-centred authority.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="obj-number">03</div>
+                    <h4>Brotherhood</h4>
+                    <p>Build a network of accountability, support, and genuine friendship among men of faith.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="obj-number">04</div>
+                    <h4>Character Development</h4>
+                    <p>Cultivate integrity, discipline, and emotional resilience rooted in scriptural values.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="obj-number">05</div>
+                    <h4>Community Service</h4>
+                    <p>Mobilise men to serve the local community, making a visible Kingdom impact.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="obj-number">06</div>
+                    <h4>Evangelism</h4>
+                    <p>Send men as bold witnesses of the Gospel into every sphere of society.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Programs ───────────────────────────── -->
+    <section class="programs-section">
+        <div class="container">
+            <h2 class="section-title">Fellowship <span>Programs</span></h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <span class="program-icon">📖</span>
+                    <h4>Men's Bible Study</h4>
+                    <p>Weekly deep-dive sessions into Scripture designed to challenge and build every man's foundation in the Word.</p>
+                </div>
+                <div class="program-card">
+                    <span class="program-icon">🔥</span>
+                    <h4>Prayer Camps</h4>
+                    <p>Quarterly overnight prayer retreats where men intercede for families, the church, and the nation.</p>
+                </div>
+                <div class="program-card">
+                    <span class="program-icon">🤝</span>
+                    <h4>Mentorship Circles</h4>
+                    <p>Structured peer-accountability groups pairing younger men with seasoned brothers walking the same road of faith.</p>
+                </div>
+                <div class="program-card">
+                    <span class="program-icon">🏗️</span>
+                    <h4>Men's Conference</h4>
+                    <p>An annual gathering of men for teaching, worship, and strategic conversations about life, family, and Kingdom purpose.</p>
+                </div>
+                <div class="program-card">
+                    <span class="program-icon">🌍</span>
+                    <h4>Community Outreach</h4>
+                    <p>Hands-on service projects that put our faith into action — feeding, building, and blessing those around us.</p>
+                </div>
+                <div class="program-card">
+                    <span class="program-icon">💼</span>
+                    <h4>Marketplace Ministry</h4>
+                    <p>Equipping men to integrate faith and work, conducting business and careers with Kingdom-level integrity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Gallery ────────────────────────────── -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Brotherhood in <span>Action</span></h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="height:486px;">
+                    <img src="images/menworship.jpg" alt="Worship">
+                    <div class="gallery-overlay"><span class="gallery-caption">Worship</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/menbible.jpg" alt="Bible Study">
+                    <div class="gallery-overlay"><span class="gallery-caption">Bible Study</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/menoutreach.jpg" alt="Outreach">
+                    <div class="gallery-overlay"><span class="gallery-caption">Outreach</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/menpray.jpg" alt="Prayer">
+                    <div class="gallery-overlay"><span class="gallery-caption">Prayer</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/menconference.jpg" alt="Conference">
+                    <div class="gallery-overlay"><span class="gallery-caption">Conference</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/menfellowship.jpg" alt="Fellowship">
+                    <div class="gallery-overlay"><span class="gallery-caption">Brotherhood</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/menservice.jpg" alt="Service">
+                    <div class="gallery-overlay"><span class="gallery-caption">Service</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CTA ────────────────────────────────── -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-eyebrow">— Join the Brotherhood —</div>
+                <h2>Rise Up. <span>Stand Firm.</span></h2>
+                <p>Every man needs brothers beside him. Whether you're new to faith or a seasoned believer, there is a place for you in the Men of Zion fellowship. Come as you are. Leave sharpened.</p>
+                <a href="contact.html" class="btn">Join Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Footer ─────────────────────────────── -->
+    <footer class="new-footer">
+        <div class="footer-container">
+            <div class="footer-verse">
+                "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future." – Jeremiah 29:11
+            </div>
+            <div class="footer-social">
+                <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://tiktok.com/yourpage" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/yourpage" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="footer-copyright">
+                <div class="ministry-name">Jesus Healing Sanctuary Ministries</div>
+                <div class="copyright">© 2026 Jesus Healing Sanctuary Ministries. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Subtle scroll-reveal for cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.objective-card, .program-card, .pillar-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease, background 0.3s ease, border-color 0.3s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

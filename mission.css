@@ -1,0 +1,187 @@
+/* Mission Statement Page Styles */
+.mission-hero {
+    background: linear-gradient(135deg, #32229c, #2c3e50);
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+    margin-top: calc(var(--top-bar-height) + var(--header-height));
+}
+
+.mission-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.mission-hero p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.mission-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.mission-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 5px solid #32229c;
+}
+
+.mission-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.mission-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mission-card h3 {
+    font-size: 1.8rem;
+    color: #1401a1;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.mission-content {
+    text-align: left;
+}
+
+.mission-content p {
+    color: #050000;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* Read More Functionality */
+.hidden-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+}
+
+.hidden-content.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.read-more-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 20px 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.read-more-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+.read-more-btn.collapsed::after {
+    content: " Read More";
+}
+.read-more-btn.expanded::after {
+    content: " Show Less";
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .mission-grid {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .mission-hero {
+        padding: 60px 0;
+    }
+    
+    .mission-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .mission-hero p {
+        font-size: 1.1rem;
+    }
+    
+    .mission-section {
+        padding: 60px 0;
+    }
+    
+    .mission-grid {
+        gap: 25px;
+    }
+    
+    .mission-card {
+        padding: 30px;
+    }
+    
+    .mission-icon {
+        font-size: 2rem;
+    }
+    
+    .mission-card h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mission-hero {
+        padding: 40px 0;
+    }
+    
+    .mission-hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .mission-section {
+        padding: 40px 0;
+    }
+    
+    .mission-card {
+        padding: 25px;
+    }
+    
+    .mission-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .mission-content p {
+        font-size: 1rem;
+    }
+    
+    .read-more-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}

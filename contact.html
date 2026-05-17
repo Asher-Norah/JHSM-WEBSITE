@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Jesus Healing Sanctuary Ministries</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="header.css">
+</head>
+<body>
+    <!-- Top Contact Bar -->
+    <div class="top-contact-bar">
+        <div class="container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>+254 0724282947</span>
+                    <span>+254 0720118672</span>
+                    <span class="contact-icon">✉️</span>
+                    <span>jhsmkenya@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/CIRLE L.png" alt="Church Logo" class="logo-img">
+                <span class="logo-text">Jesus Healing Sanctuary Ministries</span>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="sermons.html">Sermons</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="mission.html">Mission</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Header Section -->
+    <section class="contact-header">
+        <div class="container">
+            <h1>Get In Touch</h1>
+            <p>We'd love to hear from you. Reach out to us with any questions or prayer requests.</p>
+        </div>
+    </section>
+
+    <!-- Contact Content Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <!-- Contact Info Box -->
+                <div class="contact-info-box">
+                    <h2>Church Leadership Contacts</h2>
+                    <div class="contact-leaders">
+                        <div class="leader-card">
+                            <h3>Bishop Simon Lemarimbe</h3>
+                            <p class="leader-phone">0724282947</p>
+                        </div>
+                        <div class="leader-card">
+                            <h3>Reverend Joshua Kerika</h3>
+                            <p class="leader-phone">0720118672</p>
+                        </div>
+                        <div class="leader-card">
+                            <h3>Email Address</h3>
+                            <p class="leader-email">jhsmkenya@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2>Contact Form</h2>
+                    <p class="form-description">Fill out the form below and we'll get back to you as soon as possible.</p>
+                    
+                    <!-- Form with Formspree endpoint -->
+                    <form class="contact-form" action="https://formspree.io/f/xpqjgzll" method="POST">
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h3>Personal Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="gender">Gender</label>
+                                    <select id="gender" name="gender">
+                                        <option value="">Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Age</label>
+                                    <input type="number" id="age" name="age" min="1" max="120">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" id="location" name="location" placeholder="Where are you located?">
+                            </div>
+                        </div>
+
+                        <!-- Nature of Inquiry -->
+                        <div class="form-section">
+                            <h3>Nature of Inquiry *</h3>
+                            <p class="section-description">Please specify why you are reaching out to us:</p>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="inquiry" value="new-member">
+                                    <span class="checkmark"></span>
+                                    I am new and want to know more about the ministry
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="inquiry" value="join-ministry">
+                                    <span class="checkmark"></span>
+                                    I want to join a ministry
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="inquiry" value="counselling">
+                                    <span class="checkmark"></span>
+                                    I am seeking counselling/mentorship
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="inquiry" value="prayer">
+                                    <span class="checkmark"></span>
+                                    I'd like to request a prayer
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="inquiry" value="speak-pastor">
+                                    <span class="checkmark"></span>
+                                    I want to speak to a pastor
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="inquiry" value="partner">
+                                    <span class="checkmark"></span>
+                                    I want to partner/support financially
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="inquiry" value="other">
+                                    <span class="checkmark"></span>
+                                    Other
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Message Section -->
+                        <div class="form-section">
+                            <div class="form-group">
+                                <label for="message">Please tell us more about your inquiry and how we can serve you *</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Share more details about your inquiry..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Spiritual Background (Optional) -->
+                        <div class="form-section optional-section">
+                            <h3>Spiritual Background <span class="optional">(Optional)</span></h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="churchMember">Are you a member of a church branch?</label>
+                                    <select id="churchMember" name="churchMember">
+                                        <option value="">Select Option</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                        <option value="visiting">Visiting</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bornAgain">Are you born again?</label>
+                                    <select id="bornAgain" name="bornAgain">
+                                        <option value="">Select Option</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                        <option value="prefer-not">Prefer not to say</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="mentor">Would you like to be connected with a mentor?</label>
+                                <select id="mentor" name="mentor">
+                                    <option value="">Select Option</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                    <option value="maybe">Maybe later</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Consent and Privacy -->
+                        <div class="form-section consent-section">
+                            <div class="consent-box">
+                                <p class="consent-text">
+                                    By submitting this form I consent to the church contacting me and using the details provided. 
+                                    My information will be kept private and used only for ministry purposes.
+                                </p>
+                                <label class="checkbox-label consent-label">
+                                    <input type="checkbox" id="consent" name="consent" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the terms above *
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-submit">
+                            <button type="submit" class="submit-button">Submit Request</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="new-footer">
+        <div class="footer-container">
+            <!-- Row 1: Bible verse -->
+            <div class="footer-verse">
+                “For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.” – Jeremiah 29:11
+            </div>
+
+            <!-- Row 2: Social media icons -->
+            <div class="footer-social">
+                <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://tiktok.com/yourpage" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/yourpage" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <!-- Row 3: Ministry name and copyright -->
+            <div class="footer-copyright">
+                <div class="ministry-name">JESUS HEALING SANCTUARY MINISTRIES</div>
+                <div class="copyright">© 2026 Jesus Healing Sanctuary Ministries. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JS (keep if it doesn't interfere with form) -->
+    <script src="main.js"></script>
+    <!-- Contact JS is commented out to avoid overriding the native Formspree submission -->
+    <!-- <script src="contact.js"></script> -->
+</body>
+</html>

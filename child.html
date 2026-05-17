@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Ministry - Jesus Healing Sanctuary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --yellow: #FFD700;
+            --blue: #4169E1;
+            --red: #FF6B6B;
+            --purple: #9370DB;
+            --light-blue: #87CEEB;
+            --light-yellow: #FFFACD;
+            --white: #FFFFFF;
+            --light-purple: #E6E6FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Neue', cursive, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 140px; /* Added to account for fixed header */
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--blue);
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 5px;
+            background-color: var(--yellow);
+            margin: 10px auto;
+            border-radius: 5px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, var(--light-blue), var(--light-purple));
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: -40px; /* Adjust for header height */
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            color: var(--blue);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 0 var(--yellow);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #333;
+        }
+
+        .verse {
+            font-style: italic;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 15px;
+            display: inline-block;
+            font-size: 1.5rem;
+            color: var(--purple);
+            border: 3px dashed var(--yellow);
+            margin-top: 1.5rem;
+        }
+
+        /* Mission Cards */
+        .mission-cards {
+            margin-top: 2rem;
+        }
+        
+        .mission-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s;
+            border-top: 6px solid var(--blue);
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .mission-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-card h3 {
+            color: var(--blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .mission-card p {
+            color: #000000; /* Black text */
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        /* Service Times */
+        .service-times {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 2rem;
+            width: 300px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-top: 8px solid var(--blue);
+        }
+
+        .service-card h3 {
+            color: var(--blue);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .service-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .service-card li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 1.1rem;
+        }
+
+        .service-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* Wellness & Contact */
+        .wellness-contact {
+            background-color: var(--light-purple);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 2rem;
+        }
+
+        .wellness-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .wellness-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .wellness-icon {
+            font-size: 3rem;
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: var(--yellow);
+        }
+
+        /* Cards Layout (3 columns) */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 992px) {
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sermon Notes Cards */
+        .sermon-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            border: 4px solid var(--yellow);
+            transition: transform 0.3s;
+        }
+
+        .sermon-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .sermon-card h4 {
+            color: var(--red);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .sermon-card p {
+            margin-bottom: 1rem;
+        }
+
+        .bible-character {
+            font-size: 3rem;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .edit-btn {
+            background-color: var(--blue);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Values Cards (Pillars) */
+        .pillar-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .pillar-card:hover {
+            transform: scale(1.05);
+        }
+
+        .pillar-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pillar-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(65, 105, 225, 0.8);
+            color: white;
+            padding: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .pillar-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .pillar-content h4 {
+            color: var(--blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        /* Programs Cards */
+        .program-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            border-top: 6px solid var(--purple);
+            text-align: center;
+        }
+
+        .program-icon {
+            font-size: 2.5rem;
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+
+        .program-card h4 {
+            color: var(--purple);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Alternating Pictures & Text */
+        .alternating-section {
+            margin: 3rem 0;
+        }
+
+        .alternating-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .alternating-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .alternating-img {
+            flex: 1;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .alternating-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .alternating-img:hover img {
+            transform: scale(1.1);
+        }
+
+        .alternating-text {
+            flex: 1;
+            padding: 2rem;
+            background-color: white;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--blue), #2c3e50);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 2rem;
+        }
+
+        .footer-contact h3 {
+            color: var(--yellow);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .footer-links-column {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .footer-links-column h4 {
+            color: var(--yellow);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-links-column ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-links-column li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links-column a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links-column a:hover {
+            color: var(--yellow);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 120px; /* Adjust for mobile header height */
+            }
+            
+            .alternating-item,
+            .alternating-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .alternating-img,
+            .alternating-text {
+                width: 100%;
+                height: auto;
+            }
+
+            .alternating-text {
+                height: auto;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .verse {
+                font-size: 1.2rem;
+            }
+            
+            .mission-card {
+                padding: 1.5rem;
+            }
+            
+            .mission-card h3 {
+                font-size: 1.6rem;
+            }
+            
+            .mission-card p {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Header adjustments for one-page navigation */
+        .navigation ul li a[href^="#"] {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- ================= YOUR HEADER (UNCHANGED) ================= -->
+    <div class="top-contact-bar">
+      <div class="container">
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <span>+254 0724282947</span>
+            <span>+254 0720118672</span>
+            <span class="contact-icon">✉️</span>
+            <span>jhsmkenya@gmail.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <img src="images/CIRLE L.png" alt="Church Logo" class="logo-img">
+          <span class="logo-text">Jesus Healing Sanctuary Ministries</span>
+        </div>
+        <nav class="navigation">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#mission">Mission</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#sermons">Sermons</a></li>
+            <li><a href="#values">Values</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Welcome to Kids Ministry!</h2>
+            <p>Where children discover God's love through fun, friendship, and faith</p>
+            <div class="verse">
+                "Let the little children come to me, and do not hinder them, for the kingdom of heaven belongs to such as these."<br>
+                <strong>Matthew 19:14</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section id="mission">
+        <div class="container">
+            <h2 class="section-title">Our Mission & Vision</h2>
+            <div class="cards-container mission-cards">
+                <div class="mission-card">
+                    <div class="mission-icon">🎯</div>
+                    <h3>Our Mission</h3>
+                    <p>To create a safe, engaging, and spiritually nurturing environment where children can grow in their relationship with Jesus Christ through age-appropriate teachings, worship, and fellowship.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="mission-icon">🌟</div>
+                    <h3>Our Vision</h3>
+                    <p>To raise up a generation of children who know God, walk in faith, and become lifelong followers of Jesus Christ, equipped to impact their world with God's love.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <div class="mission-icon">👑</div>
+                    <h3>Our Belief</h3>
+                    <p>We believe children are the future generation and chosen heirs of God's kingdom. Their faith is precious, and we are committed to nurturing their spiritual growth with love, patience, and biblical truth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    </section>
+
+    <!-- Wellness & Contact Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Whole Child Wellness</h2>
+            <div class="wellness-grid">
+                <div class="wellness-item">
+                    <div class="wellness-icon">🧠</div>
+                    <h3>Mental Wellness</h3>
+                    <p>We provide a safe space for children to express themselves, ask questions, and develop a healthy mindset rooted in God's truth.</p>
+                </div>
+                
+                <div class="wellness-item">
+                    <div class="wellness-icon">💪</div>
+                    <h3>Physical Wellness</h3>
+                    <p>Through active games and healthy snacks, we encourage children to care for their bodies as temples of the Holy Spirit.</p>
+                </div>
+                
+                <div class="wellness-item">
+                    <div class="wellness-icon">🙏</div>
+                    <h3>Spiritual Wellness</h3>
+                    <p>We nurture spiritual growth through prayer, Bible study, and teaching children how to develop a personal relationship with Jesus.</p>
+                </div>
+            </div>
+            
+            <div class="contact-card" id="contact">
+                <h3>Contact Information</h3>
+                <p><strong>Ministry Leader:</strong> Pastor Shem</p>
+                <p><strong>Phone:</strong> +254 0724 611 363</p>
+                <p><strong>Email:</strong> jhsmkenya@gmail.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sermon Notes Section -->
+    <section id="sermons">
+        <div class="container">
+            <h2 class="section-title">Kid-Friendly Sermon Notes</h2>
+            <div class="cards-container" id="sermonCards">
+                <!-- Sermon cards will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values">
+        <div class="container">
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="cards-container">
+                <!-- Values will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs">
+        <div class="container">
+            <h2 class="section-title">Our Programs</h2>
+            <div class="cards-container">
+                <!-- Programs will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternating Pictures & Text -->
+    <section class="alternating-section">
+        <div class="container">
+            <h2 class="section-title">Life in Our Ministry</h2>
+            
+            <div class="alternating-item">
+                <div class="alternating-img">
+                    <img src="images/kid3.jpg" alt="Children worshipping" onclick="openLightbox(this.src)">
+                </div>
+                <div class="alternating-text">
+                    <h3>Joyful Worship</h3>
+                    <p>Our children express their love for God through songs, dance, and creative worship. We believe worship is a celebration of God's goodness!</p>
+                </div>
+            </div>
+            
+            <div class="alternating-item">
+                <div class="alternating-img">
+                    <img src="images/kid2.jpg" alt="Kids reading Bible" onclick="openLightbox(this.src)">
+                </div>
+                <div class="alternating-text">
+                    <h3>Bible Discovery</h3>
+                    <p>Children explore God's Word through interactive storytelling, drama, and hands-on activities that make the Bible come alive.</p>
+                </div>
+            </div>
+            
+            <div class="alternating-item">
+                <div class="alternating-img">
+                    <img src="images/kid1.jpg" alt="Children praying" onclick="openLightbox(this.src)">
+                </div>
+                <div class="alternating-text">
+                    <h3>Prayer & Fellowship</h3>
+                    <p>We teach children the power of prayer and the importance of Christian friendship as they grow together in faith.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" src="" alt="">
+    </div>
+
+  <footer class="new-footer">
+    <div class="footer-container">
+        <!-- Row 1: Bible verse -->
+        <div class="footer-verse">
+            “For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.” – Jeremiah 29:11
+        </div>
+
+        <!-- Row 2: Social media icons -->
+        <div class="footer-social">
+            <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://tiktok.com/yourpage" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/yourpage" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <!-- Row 3: Ministry name and copyright -->
+        <div class="footer-copyright">
+            <div class="ministry-name">JESUS HEALING SANCTUARY MINISTRIES</div>
+            <div class="copyright">© 2026 Jesus Healing Sanctuary Ministries. All rights reserved.</div>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Mobile menu toggle for the new header
+        const mobileMenuBtn = document.querySelector('.mobile-menu');
+        const nav = document.querySelector('.navigation ul');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('active');
+            });
+        }
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.navigation a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.classList.remove('active');
+                }
+            });
+        });
+        
+        // Lightbox functionality
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = src;
+            lightbox.style.display = 'flex';
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+        
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                closeLightbox();
+            }
+        });
+        
+        // Sermon Notes Data
+        const sermonNotes = [
+            {
+                title: "Noah's Big Boat",
+                character: "🛶",
+                verse: "Genesis 6:14",
+                content: "God asked Noah to build a huge boat to save his family and animals from a big flood. God keeps His promises!",
+                keyPoint: "God protects those who obey Him."
+            },
+            {
+                title: "David & Goliath",
+                character: "🗡️",
+                verse: "1 Samuel 17:45",
+                content: "David was small but brave! He defeated giant Goliath with God's help and a slingshot.",
+                keyPoint: "With God, you can face any giant!"
+            },
+            {
+                title: "Jonah & the Big Fish",
+                character: "🐋",
+                verse: "Jonah 1:17",
+                content: "Jonah tried to run from God, but a big fish swallowed him. God gave him a second chance to obey.",
+                keyPoint: "God gives second chances when we obey."
+            },
+            {
+                title: "Daniel in Lions' Den",
+                character: "🦁",
+                verse: "Daniel 6:22",
+                content: "Daniel prayed to God even when it was against the law. God protected him from hungry lions!",
+                keyPoint: "God protects those who stay faithful."
+            },
+            {
+                title: "Jesus Feeds 5000",
+                character: "🍞",
+                verse: "John 6:11",
+                content: "A boy shared his 5 loaves and 2 fish. Jesus multiplied them to feed a huge crowd with leftovers!",
+                keyPoint: "Jesus can do amazing things with what we give Him."
+            },
+            {
+                title: "The Good Samaritan",
+                character: "❤️",
+                verse: "Luke 10:33",
+                content: "A Samaritan helped an injured man when others passed by. Jesus wants us to show love to everyone.",
+                keyPoint: "Love your neighbor as yourself."
+            }
+        ];
+        
+        // Values Data
+        const values = [
+            {
+                name: "Love",
+                description: "Showing God's unconditional love to everyone through kindness, compassion, and friendship."
+            },
+            {
+                name: "Faith",
+                description: "Building unwavering trust in God's promises and plans for our lives."
+            },
+            {
+                name: "Joy",
+                description: "Celebrating life with the happiness that comes from knowing Jesus as our Savior."
+            },
+            {
+                name: "Hope",
+                description: "Looking forward with confidence to God's good plans for our future."
+            },
+            {
+                name: "Service",
+                description: "Following Jesus' example by helping others and sharing God's love in practical ways."
+            },
+            {
+                name: "Integrity",
+                description: "Being honest and doing what's right even when no one is watching."
+            }
+        ];
+        
+        // Programs Data
+        const programs = [
+            {
+                name: "Sunday School",
+                description: "Age-appropriate Bible lessons, worship, and activities every Sunday morning.",
+                icon: "📖"
+            },
+            {
+                name: "Vacation Bible School",
+                description: "A week-long summer adventure with Bible stories, games, crafts, and music.",
+                icon: "🏕️"
+            },
+            {
+                name: "Kids Worship Team",
+                description: "Children learn to lead worship through singing, dancing, and playing instruments.",
+                icon: "🎵"
+            },
+            {
+                name: "Bible Memory Club",
+                description: "Fun ways to memorize Scripture with games, rewards, and friendly competitions.",
+                icon: "🧠"
+            },
+            {
+                name: "Prayer Warriors",
+                description: "Teaching children how to pray effectively for themselves, families, and the world.",
+                icon: "🙏"
+            },
+            {
+                name: "Service Projects",
+                description: "Hands-on opportunities to serve the community and put faith into action.",
+                icon: "🤝"
+            }
+        ];
+        
+        // Generate Sermon Notes Cards
+        const sermonCardsContainer = document.getElementById('sermonCards');
+        
+        sermonNotes.forEach((sermon, index) => {
+            const card = document.createElement('div');
+            card.className = 'sermon-card';
+            card.innerHTML = `
+                <h4>${sermon.title}</h4>
+                <div class="bible-character">${sermon.character}</div>
+                <p><strong>Bible Verse:</strong> ${sermon.verse}</p>
+                <p>${sermon.content}</p>
+                <p><strong>Key Point:</strong> ${sermon.keyPoint}</p>
+                <button class="edit-btn" onclick="editSermon(${index})">Edit Note</button>
+            `;
+            sermonCardsContainer.appendChild(card);
+        });
+        
+        // Generate Values Cards
+        const valuesContainer = document.querySelector('#values .cards-container');
+        
+        values.forEach((value, index) => {
+            const card = document.createElement('div');
+            card.className = 'pillar-card';
+            card.innerHTML = `
+                <div class="pillar-image">
+                    <img src="" alt="${value.name}">
+                    <div class="pillar-overlay">${value.name}</div>
+                </div>
+                <div class="pillar-content">
+                    <h4>${value.name}</h4>
+                    <p>${value.description}</p>
+                </div>
+            `;
+            valuesContainer.appendChild(card);
+        });
+        
+        // Generate Programs Cards
+        const programsContainer = document.querySelector('#programs .cards-container');
+        
+        programs.forEach(program => {
+            const card = document.createElement('div');
+            card.className = 'program-card';
+            card.innerHTML = `
+                <div class="program-icon">${program.icon}</div>
+                <h4>${program.name}</h4>
+                <p>${program.description}</p>
+            `;
+            programsContainer.appendChild(card);
+        });
+        
+        // Edit Sermon Function
+        function editSermon(index) {
+            const newContent = prompt("Edit the sermon note content:", sermonNotes[index].content);
+            if (newContent && newContent.trim() !== "") {
+                sermonNotes[index].content = newContent.trim();
+                // Refresh the sermon cards
+                sermonCardsContainer.innerHTML = '';
+                sermonNotes.forEach((sermon, idx) => {
+                    const card = document.createElement('div');
+                    card.className = 'sermon-card';
+                    card.innerHTML = `
+                        <h4>${sermon.title}</h4>
+                        <div class="bible-character">${sermon.character}</div>
+                        <p><strong>Bible Verse:</strong> ${sermon.verse}</p>
+                        <p>${sermon.content}</p>
+                        <p><strong>Key Point:</strong> ${sermon.keyPoint}</p>
+                        <button class="edit-btn" onclick="editSermon(${idx})">Edit Note</button>
+                    `;
+                    sermonCardsContainer.appendChild(card);
+                });
+                alert("Sermon note updated!");
+            }
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Calculate header height for offset
+                    const headerHeight = document.querySelector('.header').offsetHeight + document.querySelector('.top-contact-bar').offsetHeight;
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - headerHeight - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

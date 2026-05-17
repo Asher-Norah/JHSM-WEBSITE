@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impartation Conference</title>
+     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="ministries.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(31, 11, 155, 0.5), rgba(13, 42, 187, 0.858)), url('C:\Users\user\Desktop\JHSM WEBSITE\images\conhero.JPG');
+            background-size: cover;
+            background-position: center;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 150px 0;
+        }
+
+        .hero-section h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-section p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Chronicles Section */
+        .chronicles-section {
+            background-color: #f8f9fa;
+        }
+
+        .chronicles-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            color: #2c3e50;
+        }
+
+        .sliders-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .slider-card {
+            background: #3498db;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .slider-card h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .image-slider {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slider-images {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .slider-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+       /* About Section */
+.about-section {
+    padding: 80px 0;
+}
+
+.about-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-content h3 {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.about-content p {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.speech-bubble {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    position: relative;
+    border: 2px solid #3498db;
+    font-style: italic;
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50px;
+    border: 10px solid transparent;
+    border-bottom-color: #3498db;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design for About Section */
+@media (max-width: 768px) {
+    .about-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .about-image {
+        order: -1; /* Move image to top on mobile */
+    }
+}
+
+        /* Why Section */
+        .why-section {
+            background-color: #f8f9fa;
+        }
+
+        .why-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .why-section > p {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pillars-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .pillar-card {
+            background: rgba(6, 160, 216, 0.555);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pillar-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #061568;
+        }
+
+        /* Objectives Section */
+        .objectives-section .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .objective-card {
+            background: rgba(9, 9, 189, 0.715);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .objective-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .objective-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #f2f4f6;
+        }
+
+        /* Programs Section */
+        .programs-section {
+            background-color: #f8f9fa;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .program-card {
+            background: rgba(13, 62, 177, 0.769);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #f7f7f8fd;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            display: flex;
+            gap: 25px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            align-items: center;
+        }
+
+        .testimonial-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .testimonial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-content {
+            flex: 1;
+        }
+
+        /* Commitment Section */
+        .commitment-section {
+            background: #fafafa;
+            color: black;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .commitment-box {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .commitment-box p {
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .sliders-container,
+            .pillars-container,
+            .objectives-grid,
+            .programs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sliders-container,
+            .pillars-container,
+            .objectives-grid,
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+      <!-- Top Contact Bar -->
+    <div class="top-contact-bar">
+        <div class="container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>+254 0724282947</span>
+                    <span>+254 0720118672</span>
+                    <span class="contact-icon">✉️</span>
+                    <span>jhsmkenya@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/CIRLE L.png" alt="Church Logo" class="logo-img">
+                <span class="logo-text">Jesus Healing Sanctuary Ministries</span>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="sermons.html">Sermons</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="mission.html">Mission</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>THE IMPARTATION CONFERENCE</h1>
+            <p>Equipping believers for divine purpose, power, and transformation</p>
+        </div>
+    </section>
+
+    <!-- Chronicles Section -->
+    <section class="chronicles-section">
+        <div class="container">
+            <h2 class="chronicles-title">Impartation Conference Chronicles</h2>
+            <div class="sliders-container">
+                <!-- Word Slider -->
+                <div class="slider-card">
+                    <h3>WORD</h3>
+                    <div class="image-slider" id="word-slider">
+                        <div class="slider-images">
+                            <img src="images/word1.jpg">
+                            <img src="images/word2.jpg">
+                            <img src="images/word3.jpg">
+                            <img src="images/word4.jpg">
+                            <img src="images/word5.jpg">
+                            <img src="images/word6.jpg">
+                            <img src="images/word7.jpg">
+                            <img src="images/word8.jpg">
+                            <img src="images/word9.jpg">
+                            <img src="images/bish.jpg">
+                            <img src="images/kerika.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prayer Slider -->
+                <div class="slider-card">
+                    <h3>PRAYER</h3>
+                    <div class="image-slider" id="prayer-slider">
+                        <div class="slider-images">
+                            <img src="images/prayer1.jpg">
+                            <img src="images/prayer2.jpg">
+                            <img src="images/prayer3.jpg">
+                             <img src="images/prayer4.jpg">
+                              <img src="images/prayer5.jpg">
+                               <img src="images/prayer6.jpg">
+                                <img src="images/prayer7.jpg">
+                                 <img src="images/prayer8.jpg">
+                                  <img src="images/prayer9.jpg">
+                                   <img src="images/prayer10.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community Slider -->
+                <div class="slider-card">
+                    <h3>COMMUNITY</h3>
+                    <div class="image-slider" id="community-slider">
+                        <div class="slider-images">
+                            <img src="images/community1.jpg">
+                            <img src="images/community2.jpg">
+                            <img src="images/community3.jpg">
+                            <img src="images/community4.jpg">
+                            <img src="images/community5.jpg">
+                            <img src="images/community6.jpg">
+                            <img src="images/community7.jpg">
+                            <img src="images/community8.jpg">
+                            
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- About Section -->
+<section class="about-section">
+    <div class="container">
+        <div class="about-content-wrapper">
+            <div class="about-image">
+                <img src="images/about.jpg">
+            </div>
+            <div class="about-content">
+                <h3>About Impartation Conference</h3>
+                <p>The Impartation Conference is a week long transformative gathering that happens Annually in August/September in our mother church JHSM Maralal, Samburu. It designed to equip believers with spiritual tools and insights needed to walk in their divine purpose. Through powerful teachings, prayer sessions, and community fellowship, participants experience personal growth and spiritual renewal.</p>
+                
+                <div class="speech-bubble">
+                    <p>"In an era marked by rapid spiritual, social, and technological transformation, the Impartation Conference seeks to equip believers with divine wisdom, unwavering values, and spiritual resilience; raising a generation of leaders empowered to influence their world through the power of the Holy Spirit."<p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Why Section -->
+    <section class="why-section">
+        <div class="container">
+            <h2>Why Impartation Conference?</h2>
+            <p>How can believers be equipped and empowered through the Word and the Spirit to walk in divine purpose, power, and transformation?</p>
+            
+            <p>In today's challenging world, believers need more than just Sunday sermons. They need practical tools, deep spiritual encounters, and a supportive community to help them navigate life's complexities while staying true to their divine calling.</p>
+            
+            <div class="pillars-container">
+                <div class="pillar-card">
+                    <h4>WORD</h4>
+                    <p>Deep biblical teaching that transforms minds and renews purpose</p>
+                </div>
+                <div class="pillar-card">
+                    <h4>PRAYER</h4>
+                    <p>Powerful prayer sessions that connect believers with God's heart</p>
+                </div>
+                <div class="pillar-card">
+                    <h4>WORSHIP</h4>
+                    <p>Authentic worship experiences that usher in God's presence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Chronicles Section -->
+    <section class="chronicles-section">
+        <div class="container">
+            <h2 class="chronicles-title">Our Departments</h2>
+            <div class="sliders-container">
+                <!-- Word Slider -->
+                <div class="slider-card">
+                    <h3>Worship team</h3>
+                    <div class="image-slider" id="word-slider">
+                        <div class="slider-images">
+                            <img src="images/worship1.jpg">
+                            <img src="images/worship2.jpg">
+                            <img src="images/worship3.jpg">
+                            <img src="images/worship4.jpg">
+                            <img src="images/worship5.jpg">
+                            <img src="images/worship6.jpg">
+                            <img src="images/worship7.jpg">
+                            <img src="images/worship8.jpg">
+                            <img src="images/worship9.jpg">
+                            <img src="images/worship10.jpg">
+                            <img src="images/worship11.jpg">
+                            <img src="images/worship12.jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prayer Slider -->
+                <div class="slider-card">
+                    <h3>Hospitality team</h3>
+                    <div class="image-slider" id="prayer-slider">
+                        <div class="slider-images">
+                            <img src="images/hos1.jpg">
+                            <img src="images/hos2.jpg">
+                            <img src="images/hos3.jpg">
+                             <img src="images/hos4.jpg">
+                              <img src="images/hos5.jpg">
+                               <img src="images/hos6.jpg">
+                                <img src="images/hos7.jpg">
+                                 <img src="images/hos8.jpg">
+                                  <img src="images/hos9.jpg">
+                                   
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community Slider -->
+                <div class="slider-card">
+                    <h3>Ushering Team</h3>
+                    <div class="image-slider" id="community-slider">
+                        <div class="slider-images">
+                            <img src="images/ush1.jpg">
+                            <img src="images/ush2.jpg">
+                            <img src="images/ush3.jpg">
+                            <img src="images/ush4.jpg">
+                            <img src="images/ush5.jpg">
+                            <img src="images/ush6.jpg">
+                            <img src="images/ush7.jpg">
+                            <img src="images/ush8.jpg">
+                            <img src="images/ush9.jpg">
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sound Slider -->
+                <div class="slider-card">
+                    <h3>Sound Team</h3>
+                    <div class="image-slider" id="sound-slider">
+                        <div class="slider-images">
+                            <img src="images/sound1.jpg">
+                            <img src="images/sound2.jpg">
+                            <img src="images/sound3.jpg">
+                            <img src="images/sound4.jpg">
+                            <img src="images/sound5.jpg">
+                            <img src="images/sound6.jpg">
+                            <img src="images/sound7.jpg">
+                            <img src="images/sound8.jpg">
+                            <img src="images/sound9.jpg">
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Media Slider -->
+                <div class="slider-card">
+                    <h3>Media Team</h3>
+                    <div class="image-slider" id="media-slider">
+                        <div class="slider-images">
+                            <img src="images/media14.jpg">
+                            <img src="images/media2.jpg">
+                            <img src="images/media3.jpg">
+                            <img src="images/media4.jpg">
+                            <img src="images/media5.jpg">
+                            <img src="images/media13.jpg">
+                            <img src="images/media7.jpg">
+                            <img src="images/media8.jpg">
+                            <img src="images/media9.jpg">
+                            <img src="images/media10.jpg">
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Intercessory Slider -->
+                <div class="slider-card">
+                    <h3>Intercessory Team</h3>
+                    <div class="image-slider" id="intercessory-slider">
+                        <div class="slider-images">
+                            <img src="images/int1.jpg">
+                            <img src="images/int2.jpg">
+                            <img src="images/int3.jpg">
+                            <img src="images/int4.jpg">
+                            <img src="images/int5.jpg">
+                            <img src="images/int6.jpg">
+                            <img src="images/int7.jpg">
+                            <img src="images/int8.jpg">
+                            <img src="images/int9.jpg">
+                            <img src="images/int10.jpg">
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objectives Section -->
+    <section class="objectives-section">
+        <div class="container">
+            <h2>Core Objectives of the Impartation Conference</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <h4>Spiritual Empowerment</h4>
+                    <p>Equip believers with spiritual authority and understanding of their identity in Christ</p>
+                </div>
+                <div class="objective-card">
+                    <h4>Purpose Discovery</h4>
+                    <p>Help individuals discover and walk in their God-given purpose and calling</p>
+                </div>
+                <div class="objective-card">
+                    <h4>Community Building</h4>
+                    <p>Foster genuine connections and support systems among believers</p>
+                </div>
+                <div class="objective-card">
+                    <h4>Practical Application</h4>
+                    <p>Provide practical tools for applying biblical principles in daily life</p>
+                </div>
+                <div class="objective-card">
+                    <h4>Leadership Development</h4>
+                    <p>Identify and nurture emerging leaders within the community</p>
+                </div>
+                <div class="objective-card">
+                    <h4>Kingdom Impact</h4>
+                    <p>Empower believers to make a tangible impact in their spheres of influence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs-section">
+        <div class="container">
+            <h2>Conference Programs</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <h4>Workshops</h4>
+                    <p>Interactive sessions focusing on practical skills and spiritual growth</p>
+                </div>
+                <div class="program-card">
+                    <h4>Team Building</h4>
+                    <p>Activities designed to strengthen relationships and foster unity</p>
+                </div>
+                <div class="program-card">
+                    <h4>Bible Study</h4>
+                    <p>Deep dive into Scripture with guided discussions and applications</p>
+                </div>
+                <div class="program-card">
+                    <h4>Street Praise</h4>
+                    <p>Taking worship beyond the walls to impact the community</p>
+                </div>
+                <div class="program-card">
+                    <h4>Crusades</h4>
+                    <p>Evangelistic outreach events to share the gospel message</p>
+                </div>
+                <div class="program-card">
+                    <h4>Door to Door</h4>
+                    <p>Personalized ministry reaching people in their homes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>What People Are Saying</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="images/CIRLE L.png">
+                    </div>
+                    <div class="testimonial-content">
+                        <h4>Asher Norah</h4>
+                        <p>"The Impartation Conference completely transformed my prayer life. I now understand how to pray with authority and see real results in my circumstances."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="images/CIRLE L.png" alt="Michael Brown">
+                    </div>
+                    <div class="testimonial-content">
+                        <h4> Ivan Ijusa</h4>
+                        <p>"I came to the conference feeling lost and uncertain about my purpose. Through the teachings and community, I discovered my calling and now walk with confidence."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commitment Section -->
+    <section class="commitment-section">
+        <div class="container">
+            <div class="commitment-box">
+                <p>"We are committed to creating an environment where every believer can encounter God, discover their purpose, and be equipped to transform their world through the power of the Holy Spirit."</p>
+            </div>
+        </div>
+    </section>
+
+    
+<footer class="new-footer">
+    <div class="footer-container">
+        <!-- Row 1: Bible verse -->
+        <div class="footer-verse">
+            “For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.” – Jeremiah 29:11
+        </div>
+
+        <!-- Row 2: Social media icons -->
+        <div class="footer-social">
+            <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://tiktok.com/yourpage" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/yourpage" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <!-- Row 3: Ministry name and copyright -->
+        <div class="footer-copyright">
+            <div class="ministry-name">JESUS HEALING SANCTUARY MINISTRIES</div>
+            <div class="copyright">© 2026 Jesus Healing Sanctuary Ministries. All rights reserved.</div>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Image Sliders Functionality
+        class ImageSliders {
+            constructor() {
+                // Get all image sliders dynamically
+                this.sliders = [];
+                const sliderElements = document.querySelectorAll('.image-slider');
+                
+                sliderElements.forEach(element => {
+                    this.sliders.push({
+                        element: element,
+                        currentIndex: 0
+                    });
+                });
+                
+                this.slideInterval = null;
+                this.init();
+            }
+
+            init() {
+                this.startAutoSlide();
+                
+                // Pause on hover for each slider
+                this.sliders.forEach(sliderObj => {
+                    if (sliderObj.element) {
+                        sliderObj.element.addEventListener('mouseenter', () => this.stopAutoSlide());
+                        sliderObj.element.addEventListener('mouseleave', () => this.startAutoSlide());
+                    }
+                });
+            }
+
+            slideNext(sliderObj) {
+                const sliderImages = sliderObj.element.querySelector('.slider-images');
+                if (!sliderImages) return;
+                
+                const totalSlides = sliderImages.children.length;
+                if (totalSlides === 0) return;
+                
+                sliderObj.currentIndex = (sliderObj.currentIndex + 1) % totalSlides;
+                const translateX = -sliderObj.currentIndex * 100;
+                sliderImages.style.transform = `translateX(${translateX}%)`;
+            }
+
+            startAutoSlide() {
+                this.stopAutoSlide(); // Clear any existing interval
+                this.slideInterval = setInterval(() => {
+                    this.sliders.forEach(sliderObj => {
+                        this.slideNext(sliderObj);
+                    });
+                }, 3000); // Change slides every 3 seconds
+            }
+
+            stopAutoSlide() {
+                if (this.slideInterval) {
+                    clearInterval(this.slideInterval);
+                }
+            }
+        }
+
+        // Initialize sliders when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            new ImageSliders();
+        });
+    </script>
+</body>
+</html>

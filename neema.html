@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neema Women's Conference</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@300;400;500&family=Dancing+Script:wght@500&family=Great+Vibes&display=swap" rel="stylesheet">
+   <link rel ="stylesheet" href="style.css">
+   <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --burgundy: #800020;
+            --maroon: #4A0000;
+            --gold: #D4AF37;
+            --blush: #F9E6E6;
+            --plum: #B5838D;
+            --ivory: #FFF8F0;
+            --white: #FAFAFA;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--maroon);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--burgundy);
+            margin-bottom: 20px;
+        }
+
+        h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .cursive {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--gold);
+            color: var(--burgundy);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--burgundy);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(128, 0, 32, 0.7), rgba(212, 175, 55, 0.3)), 
+                        url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--ivory);
+            position: relative;
+        }
+
+        .about-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23b5838d' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .about-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-image {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.03);
+        }
+
+        .about-image img:nth-child(1) {
+            grid-column: 1 / 3;
+        }
+
+        .about-content h3 {
+            margin-bottom: 25px;
+        }
+
+        .about-content p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .quote-box {
+            background: var(--blush);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--gold);
+            margin-top: 30px;
+        }
+
+        .quote-box p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: var(--maroon);
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Pillars Section */
+        .pillars-section {
+            background: linear-gradient(to bottom, var(--white), var(--blush));
+        }
+
+        .pillars-subtitle {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--plum);
+            margin-bottom: 50px;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .pillar-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .pillar-image {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .pillar-card:hover .pillar-image img {
+            transform: scale(1.1);
+        }
+
+        .pillar-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(128, 0, 32, 0.7), rgba(128, 0, 32, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: 600;
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+
+        .pillar-card:hover .pillar-overlay {
+            background: linear-gradient(rgba(212, 175, 55, 0.8), rgba(212, 175, 55, 0.9));
+            color: var(--burgundy);
+        }
+
+        .pillar-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .pillar-content h4 {
+            margin-bottom: 10px;
+            color: var(--burgundy);
+        }
+
+        /* Leadership Section */
+        .leadership-section {
+            background: linear-gradient(to bottom, var(--ivory), var(--white));
+        }
+
+        .leadership-subtitle {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--plum);
+            margin-bottom: 50px;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .leader-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .leader-image {
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leader-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .leader-card:hover .leader-image img {
+            transform: scale(1.05);
+        }
+
+        .leader-content {
+            padding: 25px;
+        }
+
+        .leader-content h4 {
+            margin-bottom: 8px;
+            color: var(--burgundy);
+            font-size: 1.3rem;
+        }
+
+        .leader-role {
+            color: var(--gold);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .leader-text {
+            color: var(--maroon);
+            line-height: 1.7;
+        }
+
+        .leader-text p {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .leader-text.collapsed {
+            max-height: 80px;
+            overflow: hidden;
+        }
+
+        .leader-text.expanded {
+            max-height: none;
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            color: var(--gold);
+            background: none;
+            border: none;
+            padding: 8px 0;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .read-more-btn:hover {
+            color: var(--burgundy);
+        }
+
+        /* Theme Section */
+        .theme-section {
+            background: linear-gradient(to right, var(--maroon), var(--burgundy));
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+        }
+
+        .theme-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .theme-section h2 {
+            color: var(--gold);
+        }
+
+        .theme-year {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .theme-flyer {
+            margin: 40px auto;
+            max-width: 600px;
+            border: 5px solid var(--gold);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-flyer img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Schedule Section */
+        .schedule-section {
+            background-color: var(--blush);
+        }
+
+        .schedule-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .schedule-tab {
+            padding: 12px 25px;
+            background: var(--white);
+            border: 2px solid var(--burgundy);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .schedule-tab.active {
+            background: var(--burgundy);
+            color: var(--white);
+        }
+
+        .schedule-content {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .schedule-day {
+            display: none;
+        }
+
+        .schedule-day.active {
+            display: block;
+        }
+
+        .event-card {
+            background: var(--burgundy);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .event-time {
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        .download-btn {
+            display: block;
+            margin: 30px auto 0;
+            text-align: center;
+            max-width: 250px;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background-color: var(--ivory);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(128, 0, 32, 0.8));
+            color: var(--white);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: linear-gradient(to bottom, var(--burgundy), var(--maroon));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .testimonials-section h2 {
+            color: var(--gold);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            color: var(--maroon);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: var(--burgundy);
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--plum);
+        }
+
+        /* Objectives Section */
+        .objectives-section {
+            background-color: var(--ivory);
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .objective-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--gold);
+        }
+
+        .objective-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .objective-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--burgundy);
+        }
+
+        .objective-card p {
+            color: var(--maroon);
+            line-height: 1.6;
+        }
+
+        /* Programs Section */
+        .programs-section {
+            background-color: var(--blush);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .program-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--burgundy);
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .program-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--burgundy);
+        }
+
+        .program-card p {
+            color: var(--maroon);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(128, 0, 32, 0.8), rgba(128, 0, 32, 0.9)), 
+                        url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            color: var(--gold);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .cta-flyer {
+            max-width: 500px;
+            margin: 40px auto;
+            border: 5px solid var(--gold);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-flyer img {
+            width: 100%;
+            display: block;
+        }
+
+        .cta-btn {
+            background: var(--gold);
+            color: var(--burgundy);
+            font-size: 1.2rem;
+            padding: 15px 40px;
+        }
+
+       
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content-wrapper,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pillars-grid,
+            .objectives-grid,
+            .programs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .pillars-grid,
+            .leadership-grid,
+            .objectives-grid,
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            
+
+            .schedule-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .schedule-tab {
+                width: 200px;
+                text-align: center;
+            }
+        }
+            .footer {
+    background-color: #1677d8;
+    border-top: 1px solid #e9ecef;
+    padding: 30px 0 20px;
+    margin-top: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+.footer-section h3 {
+    color: #f2f4f6;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #ced7dc;
+    padding-bottom: 5px;
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+     color: #000306;
+}
+
+.footer-contact strong {
+    color: #eff1f3;
+    margin-right: 5px;
+}
+
+.footer-notes {
+    font-style: italic;
+    color: #feffff;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-links-column {
+    flex: 1;
+    min-width: 150px;
+}
+
+.footer-links-column h4 {
+    color: #ebedef;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.footer-links-column strong {
+    color: #ebedef;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.footer-links-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-links-column ul li a {
+    color: #eef3f6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links-column ul li a:hover {
+    color: #f9f9f9;
+    text-decoration: underline;
+}
+
+.footer-contact-info p {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-bottom {
+    border-top: 1px solid #e9ecef;
+    padding-top: 15px;
+    text-align: center;
+    color: #f9f9f9;
+    font-size: 0.9rem;
+}
+    </style>
+    <link rel="stylesheet" href="header.css">
+</head>
+<body>
+    <!-- Top Contact Bar -->
+    <div class="top-contact-bar">
+        <div class="container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>+254 0724282947</span>
+                    <span>+254 0720118672</span>
+                    <span class="contact-icon">✉️</span>
+                    <span>jhsmkenya@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/CIRLE L.png" alt="Church Logo" class="logo-img">
+                <span class="logo-text">Jesus Healing Sanctuary Ministries</span>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="sermons.html">Sermons</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="mission.html">Mission</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Neema Women's Fellowship</h1>
+                <p class="hero-subtitle">Grace. Strength. Purpose in Christ.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content-wrapper">
+                <div class="about-image">
+                   
+                    <img src="images/women.jpg" alt="Women hugging">
+                    
+                </div>
+                <div class="about-content">
+                    <h3>Our Story</h3>
+                    <p>Neema, meaning "Grace" in Swahili, is a movement inspiring women to rise in faith, embrace their God-given purpose, and support one another in spiritual growth. Our conference brings together women from all walks of life to experience transformation through worship, teaching, and fellowship.</p>
+                    <p>Founded on the principles of divine grace and sisterhood, Ne'ema has become a beacon of hope and empowerment for women seeking to deepen their relationship with Christ and impact their communities.</p>
+                    <div class="quote-box">
+                        <p>"Empowering women to walk boldly in grace."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="leadership-section">
+        <div class="container">
+            <h2 class="section-title">Meet Our Leadership</h2>
+            <p class="leadership-subtitle">Guided by visionary women of faith.</p>
+            <div class="leadership-grid">
+                <!-- Leader 1 -->
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <img src="images/susan.jpg" alt="Susan">
+                    </div>
+                    <div class="leader-content">
+                        <h4>Rev. Susan Lemarimbe</h4>
+                        <p class="leader-role">Matron</p>
+                        <div class="leader-text collapsed">
+                            <p></p>
+                            <p></p>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                    </div>
+                </div>
+               
+                <!-- Leader 2 -->
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <img src="images/grace.jpg" alt="Grace">
+                    </div>
+                    <div class="leader-content">
+                        <h4>Pst. Grace Ayub</h4>
+                        <p class="leader-role">Chairperson</p>
+                        <div class="leader-text collapsed">
+                            <p></p>
+                            <p></p>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                    </div>
+                </div>
+                  <!-- Leader 3 -->
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <img src="images/agnes1.jpg" alt="Agnes1">
+                    </div>
+                    <div class="leader-content">
+                        <h4>Pst. Agnes Wambua</h4>
+                        <p class="leader-role">Vice chairperson</p>
+                        <div class="leader-text collapsed">
+                            <p></p>
+                            <p></p>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                    </div>
+                </div>
+                <!-- Leader 4 -->
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <img src="images/agnes2.jpg" alt="Agnes2">
+                    </div>
+                    <div class="leader-content">
+                        <h4>Pst. Agnes Nyando</h4>
+                        <p class="leader-role">Secretary</p>
+                        <div class="leader-text collapsed">
+                            <p></p>
+                            <p></p>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                    </div>
+                </div>
+                <!-- Leader 5 -->
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <img src="images/purity2.jpg" alt="Purity">
+                    </div>
+                    <div class="leader-content">
+                        <h4>Pst. Purity Kerika</h4>
+                        <p class="leader-role">Vice Secretary</p>
+                        <div class="leader-text collapsed">
+                            <p></p>
+                            <p></p>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                    </div>
+                </div>
+               
+                <!-- Leader 6 -->
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <img src="images/jane.jpg" alt="jane">
+                    </div>
+                    <div class="leader-content">
+                        <h4>Pst. Jane Musyo</h4>
+                        <p class="leader-role">Coordinator</p>
+                        <div class="leader-text collapsed">
+                            <p></p>
+                            <p></p>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                    </div>
+                </div>
+                <!-- Leader 7 -->
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <img src="images/gladys.jpg" alt="gladys">
+                    </div>
+                    <div class="leader-content">
+                        <h4>Gladys Muimi</h4>
+                        <p class="leader-role">Treasurer</p>
+                        <div class="leader-text collapsed">
+                            <p></p>
+                            <p></p>
+                        </div>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- Pillars Section -->
+    <section class="pillars-section">
+        <div class="container">
+            <h2 class="section-title">Our Pillars of Grace</h2>
+            <p class="pillars-subtitle">Built on faith, rooted in purpose.</p>
+            <div class="pillars-grid">
+                <!-- Pillar 1 -->
+                <div class="pillar-card">
+                    <div class="pillar-image">
+                        <img src="images/faith.jpg" alt="Faith">
+                        <div class="pillar-overlay">Faith</div>
+                    </div>
+                    <div class="pillar-content">
+                        <h4>Faith</h4>
+                        <p>Building unwavering trust in God's promises and plans for our lives.</p>
+                    </div>
+                </div>
+                <!-- Pillar 2 -->
+                <div class="pillar-card">
+                    <div class="pillar-image">
+                        <img src="images/love.jpg" alt="Purpose">
+                        <div class="pillar-overlay">Love</div>
+                    </div>
+                    <div class="pillar-content">
+                        <h4>Love</h4>
+                        <p>Discovering and walking in our God-given calling with confidence.</p>
+                    </div>
+                </div>
+                <!-- Pillar 3 -->
+                <div class="pillar-card">
+                    <div class="pillar-image">
+                        <img src="images/peace.jpg" alt="Community">
+                        <div class="pillar-overlay">Peace</div>
+                    </div>
+                    <div class="pillar-content">
+                        <h4>Peace</h4>
+                        <p>Fostering authentic relationships that encourage spiritual growth.</p>
+                    </div>
+                </div>
+                <!-- Pillar 4 -->
+                <div class="pillar-card">
+                    <div class="pillar-image">
+                        <img src="images/patience.jpg" alt="Prayer">
+                        <div class="pillar-overlay">Patience</div>
+                    </div>
+                    <div class="pillar-content">
+                        <h4>Patience</h4>
+                        <p>Cultivating a powerful prayer life that transforms circumstances.</p>
+                    </div>
+                </div>
+                <!-- Pillar 5 -->
+                <div class="pillar-card">
+                    <div class="pillar-image">
+                        <img src="images/kindness.jpg">
+                        <div class="pillar-overlay">Kindness</div>
+                    </div>
+                    <div class="pillar-content">
+                        <h4>Kindness</h4>
+                        <p>Grounding our lives in the truth and wisdom of Scripture.</p>
+                    </div>
+                </div>
+                <!-- Pillar 6 -->
+                <div class="pillar-card">
+                    <div class="pillar-image">
+                        <img src="images/humility.jpg">
+                        <div class="pillar-overlay">Humility</div>
+                    </div>
+                    <div class="pillar-content">
+                        <h4>Humility</h4>
+                        <p>Using our gifts to serve others and advance God's kingdom.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <!-- Objectives Section -->
+    <section class="objectives-section">
+        <div class="container">
+            <h2 class="section-title">Core Objectives of Neema Women's Fellowship</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <h4>Spiritual Empowerment</h4>
+                    <p>Equip women with spiritual authority and understanding of their identity in Christ</p>
+                </div>
+                <div class="objective-card">
+                    <h4>Purpose Discovery</h4>
+                    <p>Help women discover and walk in their God-given purpose and calling</p>
+                </div>
+                <div class="objective-card">
+                    <h4>Sisterhood Building</h4>
+                    <p>Foster genuine connections and support systems among women believers</p>
+                </div>
+                <div class="objective-card">
+                    <h4>Practical Application</h4>
+                    <p>Provide practical tools for applying biblical principles in daily life</p>
+                </div>
+                <div class="objective-card">
+                    <h4>Leadership Development</h4>
+                    <p>Identify and nurture emerging women leaders within the community</p>
+                </div>
+                <div class="objective-card">
+                    <h4>Kingdom Impact</h4>
+                    <p>Empower women to make a tangible impact in their spheres of influence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Moments of Grace</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/womenworship.jpg" alt="Worship">
+                    <div class="gallery-caption">Worship</div>
+                </div>
+                <div class="gallery-item">
+                       <img src="images/womenhero2.jpg" alt="Empowerment">
+                    <div class="gallery-caption">Sisterhood</div>
+                </div>
+                <div class="gallery-item">
+                       <img src="images/womenhero.jpg"alt="outreach">
+                    <div class="gallery-caption">Outreach</div>
+                </div>
+                <div class="gallery-item">
+                      <img src="images/womenpray.jpg" alt="pray">
+                       <div class="gallery-caption">Pray</div>
+                </div>
+                <div class="gallery-item">
+                       <img src="images/womenbible.jpg" alt="bible">
+                    <div class="gallery-caption">Teaching</div>
+                </div>
+                <div class="gallery-item">
+                     <img src="images/women3.jpg" alt="fellowship">
+                    <div class="gallery-caption">Fellowship</div>
+                </div>
+                 <div class="gallery-item">
+                     <img src="images/ush1.jpg" alt="fellowship">
+                    <div class="gallery-caption">Bible study</div>
+                </div>
+                 <div class="gallery-item">
+                     <img src="images/women7.jpg" alt="fellowship">
+                    <div class="gallery-caption">Deliverance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+<footer class="new-footer">
+    <div class="footer-container">
+        <!-- Row 1: Bible verse -->
+        <div class="footer-verse">
+            “For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.” – Jeremiah 29:11
+        </div>
+
+        <!-- Row 2: Social media icons -->
+        <div class="footer-social">
+            <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://tiktok.com/yourpage" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/yourpage" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <!-- Row 3: Ministry name and copyright -->
+        <div class="footer-copyright">
+            <div class="ministry-name">JESUS HEALING SANCTUARY MINISTRIES</div>
+            <div class="copyright">© 2026 Jesus Healing Sanctuary Ministries. All rights reserved.</div>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Leadership Read More/Less Toggle
+        function toggleReadMore(btn) {
+            const leaderText = btn.previousElementSibling;
+            const isCollapsed = leaderText.classList.contains('collapsed');
+            
+            if (isCollapsed) {
+                leaderText.classList.remove('collapsed');
+                leaderText.classList.add('expanded');
+                btn.textContent = 'Read Less';
+            } else {
+                leaderText.classList.add('collapsed');
+                leaderText.classList.remove('expanded');
+                btn.textContent = 'Read More';
+            }
+        }
+
+        // Schedule Tabs Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.schedule-tab');
+            const days = document.querySelectorAll('.schedule-day');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const day = this.getAttribute('data-day');
+                    
+                    // Remove active class from all tabs and days
+                    tabs.forEach(t => t.classList.remove('active'));
+                    days.forEach(d => d.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding day
+                    this.classList.add('active');
+                    document.getElementById(day).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

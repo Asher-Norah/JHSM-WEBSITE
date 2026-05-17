@@ -1,0 +1,1046 @@
+/* Kajiado Region Page Styles */
+
+/* Church Members Section */
+.church-members-section {
+    padding: 40px 0;
+    background: #f8f9fa;
+    margin-top: calc(var(--top-bar-height) + var(--header-height));
+}
+
+.members-photo {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.members-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Slider Section */
+.slider-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.image-slider {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 25px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Slider Controls */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 20px 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+}
+
+.slider-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+/* Slider Dots */
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+
+
+/* Services Section */
+.services-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    border-top: 4px solid #32229c;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.service-time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #32229c;
+    font-weight: 600;
+}
+
+.service-card p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Flyer Section */
+.flyer-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.flyer-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.flyer-content h2 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.flyer-content p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.flyer-image {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.flyer-img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Map Section */
+.map-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.map-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.map-placeholder {
+    position: relative;
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    min-height: 500px;
+}
+
+.map-locations {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.location-marker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.location-marker:hover {
+    background: #32229c;
+    color: white;
+    transform: translateX(5px);
+}
+
+.location-marker.active {
+    background: #32229c;
+    color: white;
+    border-color: #3498db;
+}
+
+.marker-pin {
+    font-size: 1.2rem;
+}
+
+.location-name {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+
+
+@media (max-width: 768px) {
+    .church-members-section {
+        padding: 30px 0;
+    }
+    
+    .members-img {
+        height: 300px;
+    }
+    
+    .slider-section {
+        padding: 60px 0;
+    }
+    
+    .slider-container {
+        height: 350px;
+    }
+    
+    .slide-caption {
+        font-size: 1.1rem;
+        padding: 20px;
+    }
+    
+    .slider-btn {
+        padding: 15px 10px;
+        font-size: 1.5rem;
+    }
+    
+   
+    
+    .services-section,
+    .flyer-section,
+    .map-section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .map-placeholder {
+        padding: 30px;
+    }
+    
+    .map-locations {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    
+    .location-marker {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .church-members-section {
+        padding: 20px 0;
+    }
+    
+    .members-img {
+        height: 200px;
+    }
+    
+    .slider-section {
+        padding: 40px 0;
+    }
+    
+    .slider-container {
+        height: 250px;
+    }
+    
+    .slide-caption {
+        font-size: 1rem;
+        padding: 15px;
+    }
+    
+    .reverend-bio-section {
+        padding: 40px 0;
+    }
+    
+    .reverend-img {
+        height: 250px;
+    }
+    
+    .bio-content h2 {
+        font-size: 2rem;
+    }
+    
+    .services-section,
+    .flyer-section,
+    .map-section {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .service-card {
+        padding: 25px;
+    }
+    
+    .map-placeholder {
+        padding: 20px;
+    }
+    
+    .map-image {
+        height: 300px;
+    }
+}
+/* Church Branches Section */
+.branches-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.branch-profile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.branch-profile:last-child {
+    margin-bottom: 40px;
+}
+
+/* Alternate layout */
+.branch-profile:nth-child(odd) {
+    grid-template-areas: "content image";
+}
+
+.branch-profile:nth-child(even) {
+    grid-template-areas: "image content";
+}
+
+.branch-content {
+    grid-area: content;
+}
+
+.branch-image {
+    grid-area: image;
+    text-align: center;
+}
+
+.branch-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.branch-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.branch-location {
+    font-size: 1.2rem;
+    color: #3498db;
+    font-weight: 600;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.branch-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+.branch-description p {
+    margin-bottom: 15px;
+}
+
+.branch-description p:last-child {
+    margin-bottom: 0;
+}
+
+
+
+/* Closing Paragraph */
+.closing-paragraph {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.closing-paragraph p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+    font-style: italic;
+}
+
+/* Responsive Design for Branches */
+@media (max-width: 1024px) {
+    .branch-profile {
+        gap: 40px;
+        padding: 30px;
+    }
+    
+    .branch-img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .branches-section {
+        padding: 60px 0;
+    }
+    
+    .branch-profile {
+        grid-template-columns: 1fr;
+        grid-template-areas: "image" "content" !important;
+        gap: 30px;
+        margin-bottom: 60px;
+        padding: 25px;
+    }
+    
+    .branch-img {
+        height: 250px;
+    }
+    
+    .branch-name {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    
+    .branch-location {
+        text-align: center;
+    }
+    
+    .closing-paragraph {
+        padding: 30px;
+    }
+    
+    .closing-paragraph p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .branches-section {
+        padding: 40px 0;
+    }
+    
+    .branch-profile {
+        padding: 20px;
+        margin-bottom: 40px;
+    }
+    
+    .branch-img {
+        height: 200px;
+    }
+    
+    .branch-name {
+        font-size: 1.4rem;
+    }
+    
+    .branch-description {
+        font-size: 1rem;
+    }
+    
+    .closing-paragraph {
+        padding: 25px;
+    }
+    
+    .closing-paragraph p {
+        font-size: 1rem;
+    }
+}
+
+/* Reverend and Biography Section - Three Column Layout */
+.reverend-bio-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.reverend-bio-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 40px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reverend-photo {
+    text-align: center;
+}
+
+.reverend-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.photo-caption {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.bio-content {
+    text-align: center;
+    padding: 0 20px;
+}
+
+.bio-content h2 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.bio-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    text-align: left;
+}
+
+.bio-text p {
+    margin-bottom: 0;
+}
+
+/* Responsive Design for Three Column Layout */
+@media (max-width: 1024px) {
+    .reverend-bio-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        grid-template-areas: 
+            "left right"
+            "content content";
+    }
+    
+    .left-photo {
+        grid-area: left;
+    }
+    
+    .right-photo {
+        grid-area: right;
+    }
+    
+    .bio-content {
+        grid-area: content;
+        padding: 0;
+    }
+    
+    .reverend-img {
+        height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .reverend-bio-section {
+        padding: 60px 0;
+    }
+    
+    .reverend-bio-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        grid-template-areas: 
+            "left"
+            "right" 
+            "content";
+    }
+    
+    .reverend-img {
+        height: 250px;
+        max-width: 300px;
+        margin: 0 auto 15px;
+    }
+    
+    .bio-content h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .reverend-bio-section {
+        padding: 40px 0;
+    }
+    
+    .reverend-bio-content {
+        gap: 30px;
+    }
+    
+    .reverend-img {
+        height: 200px;
+        max-width: 250px;
+    }
+    
+    .bio-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .bio-text {
+        font-size: 1rem;
+    }
+    
+    .photo-caption {
+        font-size: 0.9rem;
+    }
+}
+/* Contact Section Styles */
+.contact-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.contact-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-top: 4px solid #32229c;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-info {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.phone-number {
+    font-weight: 600;
+    color: #32229c;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.email {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.email:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.contact-info strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.location-details {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+.location-details p {
+    margin-bottom: 8px;
+}
+
+/* Giving Details Card Specific Styles */
+.giving-details {
+    border-top-color: #27ae60;
+}
+
+.copy-btn {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.copy-btn:hover {
+    background: linear-gradient(135deg, #219653, #27ae60);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+}
+
+ /* Con Section Styles */
+        .con-section {
+            padding: 80px 20px;
+            background: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .con-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .con-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .con-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .con-card {
+            background: rgb(254, 254, 255);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #32229c;
+            transition: transform 0.3s ease;
+        }
+
+        .con-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .con-card h3 {
+            font-size: 1.5rem;
+            color: #dfb006;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .con-info {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .con-phone {
+            font-weight: 600;
+            color: #32229c;
+            font-size: 1.2rem;
+            margin: 10px 0;
+            display: block;
+        }
+
+        .con-email {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .con-email:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .con-info strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .con-location-details {
+            margin-top: 20px;
+        }
+
+        .con-location-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .con-location-table td {
+            padding: 8px 5px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .con-location-table td:first-child {
+            font-weight: 600;
+            color: #2c3e50;
+            width: 40%;
+        }
+
+        /* Giving Details Card Specific Styles */
+        .con-giving-details {
+            border-top-color: #3727ae;
+        }
+
+        .con-giving-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .con-giving-table th,
+        .con-giving-table td {
+            padding: 12px 8px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .con-giving-table th {
+            font-weight: 600;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .con-section {
+                padding: 60px 15px;
+            }
+            
+            .con-section h2 {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+            
+            .con-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .con-card {
+                padding: 30px 25px;
+            }
+
+            .con-giving-table {
+                font-size: 0.9rem;
+            }
+
+            .con-giving-table th,
+            .con-giving-table td {
+                padding: 8px 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .con-section {
+                padding: 40px 10px;
+            }
+            
+            .con-section h2 {
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+            }
+            
+            .con-card {
+                padding: 25px 20px;
+            }
+            
+            .con-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .con-info {
+                font-size: 1rem;
+            }
+            
+            .con-phone {
+                font-size: 1.1rem;
+            }
+            
+            .con-copy-btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            .con-giving-table {
+                font-size: 0.8rem;
+            }
+        }

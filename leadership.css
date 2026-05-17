@@ -1,0 +1,147 @@
+.leadership-section{
+padding:100px 0;
+background:#f7f7fc;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 20px;
+}
+
+/* TITLE */
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:2.5rem;
+color:#2c3e50;
+}
+
+.section-title p{
+color:#555;
+}
+
+/* SUB TITLES */
+
+.subsection-title{
+text-align:center;
+margin:80px 0 40px;
+}
+
+.subsection-title h2{
+font-size:2rem;
+color:#2c3e50;
+position:relative;
+}
+
+.subsection-title h2::after{
+content:"";
+width:70px;
+height:3px;
+background:#e74c3c;
+display:block;
+margin:10px auto;
+}
+
+/* PROFILE LAYOUT */
+
+.leader-profile{
+display:flex;
+flex-wrap:wrap;
+background:#0f4ac9;
+border-radius:10px;
+margin-bottom:40px;
+overflow:hidden;
+}
+
+.leader-image{
+flex:0 0 300px;
+}
+
+.leader-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.leader-details{
+flex:1;
+padding:40px;
+color:white;
+}
+
+.leader-name{
+font-size:2rem;
+}
+
+.leader-role{
+color:#ffcccb;
+font-weight:600;
+margin-bottom:20px;
+}
+
+.leader-bio{
+line-height:1.7;
+}
+
+/* BOARD MEMBERS GRID */
+
+.board-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+margin-bottom:80px;
+}
+
+.board-card{
+background:white;
+border-radius:10px;
+text-align:center;
+padding:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.board-card img{
+width:100%;
+height:220px;
+object-fit:contain;
+object-position:center;
+background:#f7f7fc;
+border-radius:8px;
+margin-bottom:15px;
+}
+
+.board-card h4{
+color:#2c3e50;
+font-size:1.2rem;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.board-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+.board-grid{
+grid-template-columns:1fr;
+}
+
+.leader-profile{
+flex-direction:column;
+}
+
+.leader-image{
+width:100%;
+}
+
+}

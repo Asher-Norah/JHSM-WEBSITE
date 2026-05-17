@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generation of Fire | Youth Ministry</title>
+
+<link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ================= ROOT COLORS ================= */
+:root {
+  --deep-blue: #0b2545;
+  --royal-blue: #1f4fd8;
+  --sky-blue: #e6f0ff;
+
+  --dark-brown: #4e2a0a;
+  --warm-brown: #7a3e10;
+  --light-brown: #f3e8dc;
+
+  --white: #ffffff;
+}
+
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--deep-blue);
+  line-height: 1.6;
+}
+
+section {
+  padding: 90px 20px;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 35px;
+  background: var(--royal-blue);
+  color: var(--white);
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: var(--warm-brown);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+   color: var(--burgundy);
+}
+
+.section-title:after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background-color: var(--royal-blue);
+}
+
+/* ================= HERO ================= */
+.youth-hero {
+  height: 100vh; /* Full viewport height to fill desktop */
+  background: url("images/gofhero.jpg") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(11,37,69,0.85),
+    rgba(78,42,10,0.85)
+  );
+}
+
+.hero-content {
+  position: relative;
+  color: var(--white);
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 3.8rem;
+  margin-bottom: 20px;
+  color: var(--sky-blue);
+}
+
+.hero-content p {
+  font-size: 1.6rem;
+  margin-bottom: 40px;
+}
+
+/* ================= ABOUT ================= */
+.about {
+  background: var(--sky-blue);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* ================= PILLARS ================= */
+.pillars {
+  background: linear-gradient(to bottom, var(--white), var(--light-brown));
+}
+
+.pillars-subtitle {
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  color: var(--warm-brown);
+  margin-bottom: 50px;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 30px;
+}
+
+.pillar-card {
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pillar-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.pillar-image {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pillar-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.pillar-card:hover .pillar-image img {
+  transform: scale(1.1);
+}
+
+.pillar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(11,37,69,0.7), rgba(122,62,16,0.9));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sky-blue);
+  font-size: 1.5rem;
+  font-weight: 600;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.pillar-card:hover .pillar-overlay {
+  background: linear-gradient(rgba(31,79,216,0.8), rgba(122,62,16,0.9));
+  color: var(--white);
+}
+
+.pillar-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.pillar-content h4 {
+  margin-bottom: 10px;
+  color: var(--deep-blue);
+}
+
+/* ================= LEADERSHIP ================= */
+.leadership-section {
+  background: linear-gradient(to bottom, var(--sky-blue), var(--white));
+}
+
+.leadership-subtitle {
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  color: var(--warm-brown);
+  margin-bottom: 50px;
+}
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.leader-card {
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.leader-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.leader-image {
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.leader-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.leader-card:hover .leader-image img {
+  transform: scale(1.05);
+}
+
+.leader-content {
+  padding: 25px;
+}
+
+.leader-content h4 {
+  margin-bottom: 8px;
+  color: var(--deep-blue);
+  font-size: 1.3rem;
+}
+
+.leader-role {
+  color: var(--royal-blue);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.leader-text {
+  color: var(--deep-blue);
+  line-height: 1.7;
+}
+
+.leader-text p {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.leader-text.collapsed {
+  max-height: 80px;
+  overflow: hidden;
+}
+
+.leader-text.expanded {
+  max-height: none;
+}
+
+.read-more-btn {
+  display: inline-block;
+  color: var(--royal-blue);
+  background: none;
+  border: none;
+  padding: 8px 0;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  margin-top: 10px;
+}
+
+.read-more-btn:hover {
+  color: var(--warm-brown);
+}
+
+/* ================= PROGRAMS ================= */
+.programs {
+  background: var(--sky-blue);
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.program-card {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+  border-top: 4px solid var(--royal-blue);
+}
+
+.program-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.program-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--deep-blue);
+}
+
+.program-card p {
+  color: var(--deep-blue);
+  line-height: 1.6;
+}
+
+/* ================= LEADERSHIP ================= */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 30px;
+}
+
+.leader-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.leader-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.leader-info {
+  padding: 25px;
+}
+
+.leader-role {
+  color: var(--warm-brown);
+  font-weight: 600;
+}
+
+/* ================= TESTIMONIALS ================= */
+.testimonials {
+  background: linear-gradient(var(--deep-blue), var(--dark-brown));
+  color: var(--white);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 30px;
+}
+
+.testimonial {
+  background: var(--white);
+  color: var(--deep-blue);
+  padding: 35px;
+  border-radius: 20px;
+}
+
+/* ================= GALLERY ================= */
+.gallery {
+  background: var(--light-brown);
+  padding: 90px 20px;
+}
+
+.gallery .container {
+  max-width: 1400px;
+}
+
+.gallery h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.gallery h2:after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background-color: var(--royal-blue);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  aspect-ratio: 1;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: var(--white);
+  padding: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-caption {
+  opacity: 1;
+}
+
+/* ================= CTA ================= */
+.cta {
+  background: linear-gradient(
+    rgba(11,37,69,0.9),
+    rgba(78,42,10,0.9)
+  ),
+  url("images/youthcta.jpg") center/cover;
+  color: var(--white);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.cta .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cta h2, .cta p {
+  margin-bottom: 20px;
+}
+
+.cta-image {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.cta-image:hover {
+  transform: scale(1.05);
+}
+
+.cta .btn {
+  margin-top: 30px;
+  display: inline-block;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .about-grid,
+  .pillars-grid,
+  .programs-grid,
+  .leadership-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .cta {
+    min-height: 70vh;
+    padding: 60px 20px;
+  }
+
+  .cta-image {
+    max-width: 400px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+}
+
+@media(max-width:600px){
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ================= FOOTER ================= */
+
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= YOUR HEADER (UNCHANGED) ================= -->
+<div class="top-contact-bar">
+  <div class="container">
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-icon">📞</span>
+        <span>+254 0724282947</span>
+        <span>+254 0720118672</span>
+        <span class="contact-icon">✉️</span>
+        <span>jhsmkenya@gmail.com</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <img src="images/CIRLE L.png" alt="Church Logo" class="logo-img">
+      <span class="logo-text">Jesus Healing Sanctuary Ministries</span>
+    </div>
+    <nav class="navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="sermons.html">Sermons</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="youth-hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Generation of Fire</h1>
+    <p>Igniting Revival In Every Sphere of Life</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="container about-grid">
+    <img src="images/gofintro.jpg" alt="GOF">
+    <div>
+      <h2>GET TO KNOW US</h2>
+      <p>Generation of Fire is the youth department of our church, dedicated to raising a vibrant generation that is passionate for God and grounded in His Word. We believe that young people are not just the future of the church—they are the now of God’s Kingdom. Our mission is to ignite a burning desire for Christ in the hearts of the youth, empowering them to live boldly for Him in every sphere of life.</p>
+      <p>Through fellowship, mentorship, discipleship, and outreach, Generation of Fire creates an atmosphere where young people can grow spiritually, discover their God-given purpose, and develop leadership skills that impact their families, communities, and the world. We nurture a culture of worship, prayer, and service, equipping every youth to stand firm in faith and reflect Christ’s love wherever they go.</p>
+      <p>We not only believe youth are tomorrow’s church — they are also today’s revival.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="leadership-section">
+  <div class="container">
+    <h2 class="section-title">Meet Our Leadership</h2>
+    <p class="leadership-subtitle">Guided by visionary youth leaders.</p>
+    <div class="leadership-grid">
+      <!-- Leader 1 -->
+      <div class="leader-card">
+        <div class="leader-image">
+          <img src="images/.jpg" >
+        </div>
+        <div class="leader-content">
+          <h4>Pst. Peter Letowon</h4>
+          <p class="leader-role">Youth Pastor</p>
+          <div class="leader-text collapsed">
+            <p>Pst Letowon leads Generation of Fire with a passion for seeing young people encounter God's fire. With over 10 years of youth ministry experience, he has dedicated his life to raising a generation that burns for Jesus.</p>
+            <p>His vision is to create an environment where youth can discover their identity in Christ, develop godly character, and step into their calling with confidence and boldness.</p>
+          </div>
+          <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+        </div>
+      </div>
+      <!-- Leader 2 -->
+      <div class="leader-card">
+        <div class="leader-image">
+          <img src="images/.jpg">
+        </div>
+        <div class="leader-content">
+          <h4>Lydia Boyani</h4>
+          <p class="leader-role">Chairperson</p>
+          <div class="leader-text collapsed">
+            <p>Lydia Boyani is a dedicated, compassionate and God-fearing leader who serves with humility and purpose.She leads by example, encouraging unity, respect and growth among the youth while always putting others before herself. With wisdom, patience and a heart of service she creates a safe
+                and inspiring environment where everyone feels value and motivated to grow in faith and character. Her commitment and leadership continue to positively shape and strengthen our youth group.
+            </p>
+            <p></p>
+          </div>
+          <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+        </div>
+      </div>
+      <!-- Leader 4 -->
+      <div class="leader-card">
+        <div class="leader-image">
+          <img src="images/.jpg">
+        </div>
+        <div class="leader-content">
+          <h4></h4>
+          <p class="leader-role">Secretary</p>
+          <div class="leader-text collapsed">
+            <p> </p>
+          </div>
+          <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+        </div>
+      </div>
+
+      <!-- Leader 3 -->
+      <div class="leader-card">
+        <div class="leader-image">
+          <img src="images/.jpg">
+        </div>
+        <div class="leader-content">
+          <h4>Isaac Muimi</h4>
+          <p class="leader-role">National Coordinator</p>
+          <div class="leader-text collapsed">
+            <p>Isaac Muimi  is a highly organized, committed and visionary leader who oversees all youth branches across the country and plans youth events ensuring every section is well coordinated and fully taken care of. With great attention to detail and a strong sense of responsibility, they ensure smooth communication, effective team work, and excellence in execution.</p>
+          </div>
+          <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+        </div>
+      </div>
+      <!-- Leader 4 -->
+      <div class="leader-card">
+        <div class="leader-image">
+          <img src="images/.jpg">
+        </div>
+        <div class="leader-content">
+          <h4>Fidelis Muthoni</h4>
+          <p class="leader-role">Treasurer</p>
+          <div class="leader-text collapsed">
+            <p>Fidelis Muthoni is a trustworthy, diligent and responsible leader who faithfully manages the finances of the group with integrity and transparency. They ensure proper budgeting, accountability and wise use of resources supporting all activities and programs effectively. Through their careful stewardship and commitment, they help sustain the vision and smooth running ot the youth finances. </p>
+          </div>
+          <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+        </div>
+      </div>
+      
+       
+      <!-- Leader 6 -->
+      <div class="leader-card">
+        <div class="leader-image">
+          <img src="images/.jpg">
+        </div>
+        <div class="leader-content">
+          <h4>Bramwel Sifuna</h4>
+          <p class="leader-role">Prayer Coordinator</p>
+          <div class="leader-text collapsed">
+            <p>Bramwel Sifuna oversees creative arts ministries, helping youth discover and develop their artistic gifts for God's glory. Her innovative approach has produced talented young artists, dancers, and performers.</p>
+            <p>Esther believes that creativity is a powerful way to express worship and communicate God's message, and she mentors youth to use their artistic abilities to impact their generation for Christ.</p>
+          </div>
+          <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section class="cta" id="join">
+  <div class="container">
+    <h2>This Is Your Home</h2>
+    <p>A Generation Burning for Jesus</p>
+    <img src="images/invite.jpg" alt="GOF" class="cta-image">
+    <a href="contact.html" class="btn">Join Generation of Fire</a>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars">
+  <div class="container">
+    <h2 class="section-title">Our Pillars</h2>
+    <p class="pillars-subtitle">Built on faith, rooted in purpose.</p>
+    <div class="pillars-grid">
+      <!-- Pillar 1 -->
+      <div class="pillar-card">
+        <div class="pillar-image">
+          <img src="images/love2.jpg" alt="Prayer">
+          <div class="pillar-overlay">Love</div>
+        </div>
+        <div class="pillar-content">
+          <h4>love</h4>
+          <p>Loving one another, walking in unity,vcreating a safe and welcoming space for every young person.</p>
+        </div>
+      </div>
+      <!-- Pillar 2 -->
+      <div class="pillar-card">
+        <div class="pillar-image">
+          <img src="images/faith2.jpg" alt="Word">
+          <div class="pillar-overlay">Faith</div>
+        </div>
+        <div class="pillar-content">
+          <h4>Faith</h4>
+          <p>Building a deep, personal relationship with God through prayer, worship and the word.</p>
+        </div>
+      </div>
+      <!-- Pillar 3 -->
+      <div class="pillar-card">
+        <div class="pillar-image">
+          <img src="images/respect.jpg" alt="Worship">
+          <div class="pillar-overlay">Respect</div>
+        </div>
+        <div class="pillar-content">
+          <h4>Respect</h4>
+          <p>Honouring God,leaders, each other and ourselves through our words, actions and attitudes.
+            We choose kindness, humility and self-control in all relationships.</p>
+        </div>
+      </div>
+      <!-- Pillar 5 -->
+      <div class="pillar-card">
+        <div class="pillar-image">
+          <img src="images/service.jpg" alt="service">
+          <div class="pillar-overlay"></div>
+        </div>
+        <div class="pillar-content">
+          <h4>Service</h4>
+          <p>Serving God, the church and the community with our gifts and talents.</p>
+        </div>
+      </div>
+      
+      <!-- Pillar 6 -->
+      <div class="pillar-card">
+        <div class="pillar-image">
+          <img src="images/purpose.jpg" alt="Purpose">
+          <div class="pillar-overlay">Purpose</div>
+        </div>
+        <div class="pillar-content">
+          <h4>Purpose</h4>
+          <p>Helping youths discover who they are in Christ and their God-given purpose.</p>
+        </div>
+      </div>
+      <!-- Pillar 4 -->
+      <div class="pillar-card">
+        <div class="pillar-image">
+          <img src="images/discipleship.jpg" alt="Discipleship">
+          <div class="pillar-overlay">Discipleship</div>
+        </div>
+        <div class="pillar-content">
+          <h4>Discipleship</h4>
+          <p>Growing spiritually, emotionally and mentally as we become more like Christ.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs">
+  <div class="container">
+    <h2 class="section-title">What We Do</h2>
+    <div class="programs-grid">
+      <div class="program-card">
+        <h4>Youth Fellowship</h4>
+        <p>Gatherings where young people connect, worship, and grow in their faith together.</p>
+      </div>
+      <div class="program-card">
+        <h4>Prayer Groups</h4>
+        <p>Dedicated prayer groups that build on intercession and supplication times that build spiritual strength and unity.</p>
+      </div>
+      <div class="program-card">
+        <h4>Discipleship</h4>
+        <p>Structured mentoring and Bible study programs that deepen spiritual understanding.</p>
+      </div>
+      <div class="program-card">
+        <h4>Weekend Explosions</h4>
+        <p>These are weekend long meetings that take place across our branches with an aim of evangelism and bringing youths to church.</p>
+      </div>
+      <div class="program-card">
+        <h4>Crusades</h4>
+        <p>Community service and evangelism initiatives that extend God's love to the world.</p>
+      </div>
+      <div class="program-card">
+        <h4>Mentorship</h4>
+        <p>One-on-one and group mentoring relationships that guide youth in their spiritual journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="container">
+    <h2 class="section-title">Moments of Fire</h2>
+    <div class="gallery-grid">
+      <!-- Row 1 -->
+      <div class="gallery-item">
+        <img src="images/GOFWORSHIP2.jpg" alt="Youth Worship">
+        <div class="gallery-caption">Worship</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/GOFPRAYER.jpg" alt="Youth Prayer">
+        <div class="gallery-caption">Prayer</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/GOFCOM.jpg" alt="Youth Community">
+        <div class="gallery-caption">Community</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/GOFDISCIPLE.jpg" alt="Youth Discipleship">
+        <div class="gallery-caption">Discipleship</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/hero1.jpg" alt="Youth Ministry">
+        <div class="gallery-caption">Ministry</div>
+      </div>
+      
+      <!-- Row 2 -->
+      <div class="gallery-item">
+        <img src="images/GOFPRAISE.jpg" alt="Youth Worship">
+        <div class="gallery-caption">Praise</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/GOFINTERCESSION.jpg" alt="Youth Prayer">
+        <div class="gallery-caption">Intercession</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/GOFFELO.jpg" alt="Youth Fellowship">
+        <div class="gallery-caption">Fellowship</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/GOFLOVE.jpg" alt="Youth Love">
+        <div class="gallery-caption">Love</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/hero2.jpg" alt="Youth Events">
+        <div class="gallery-caption">Events</div>
+      </div>
+      
+      <!-- Row 3 -->
+      <div class="gallery-item">
+        <img src="images/GOFWORSHIP.jpg" alt="Youth Worship">
+        <div class="gallery-caption">Adoration</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/prayer3.jpg" alt="Youth Prayer">
+        <div class="gallery-caption">Supplication</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/community3.jpg" alt="Youth Unity">
+        <div class="gallery-caption">Unity</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/GOFFAITH.jpg" alt="Youth Faith">
+        <div class="gallery-caption">Faith</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/GOFOUTREACH2.jpg" alt="Youth Outreach">
+        <div class="gallery-caption">Outreach</div>
+      </div>
+      
+      <!-- Row 4 -->
+      <div class="gallery-item">
+        <img src="images/GOFSERVICE.jpg" alt="Youth Worship">
+        <div class="gallery-caption">Service</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/prayer4.jpg" alt="Youth Prayer">
+        <div class="gallery-caption">Devotion</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/community4.jpg" alt="Youth Connection">
+        <div class="gallery-caption">Connection</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/GOFHUMILITY.jpg" alt="Youth Humility">
+        <div class="gallery-caption">Humility</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/GOFCELEBRATION.jpg" alt="Youth Celebration">
+        <div class="gallery-caption">Celebration</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="new-footer">
+  <div class="footer-container">
+    <!-- Row 1: Bible verse -->
+    <div class="footer-verse">
+      “For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.” – Jeremiah 29:11
+    </div>
+
+    <!-- Row 2: Social media icons -->
+    <div class="footer-social">
+      <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://tiktok.com/yourpage" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/yourpage" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <!-- Row 3: Ministry name and copyright -->
+    <div class="footer-copyright">
+      <div class="ministry-name">JESUS HEALING SANCTUARY MINISTRIES</div>
+      <div class="copyright">© 2026 Jesus Healing Sanctuary Ministries. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleReadMore(button) {
+    const leaderText = button.previousElementSibling;
+    const isCollapsed = leaderText.classList.contains('collapsed');
+    
+    if (isCollapsed) {
+        leaderText.classList.remove('collapsed');
+        button.textContent = 'Read Less';
+    } else {
+        leaderText.classList.add('collapsed');
+        button.textContent = 'Read More';
+    }
+}
+
+</script>
+</body>
+</html>

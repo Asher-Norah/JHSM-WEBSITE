@@ -1,0 +1,1162 @@
+/* Main site styles - cleaned and simplified */
+
+:root {
+    --top-bar-height: 56px; /* adjust if your top contact bar is taller/shorter */
+    --header-height: 70px;  /* header height used to reserve space so hero sits below it */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main, .main-content {
+    flex: 1 0 auto;
+}
+
+.new-footer {
+    flex-shrink: 0;
+}
+
+/* Hero sections should be visible below fixed header */
+.hero,
+.hero-section,
+.youth-hero,
+.hero-slider {
+    margin-top: calc(var(--top-bar-height) + var(--header-height));
+    min-height: calc(100vh - (var(--top-bar-height) + var(--header-height)));
+}
+
+/* Basic container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Top contact bar (fixed) */
+.top-contact-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--top-bar-height);
+    background: #32229c;
+    color: #f9f5f5;
+    padding: 0 12px; /* horizontal padding only, height controlled by variable */
+    font-size: 1.05rem;
+    z-index: 1002;
+}
+
+.top-contact-bar .container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 18px;
+    height: 100%;
+}
+
+/* Contact info styling */
+.contact-info {
+    display: flex;
+    gap: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #f9f5f5;
+}
+
+.contact-icon {
+    font-size: 0.9rem;
+}
+
+/* Override region styles to keep top contact bar visible */
+.top-contact-bar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 1002 !important;
+}
+
+.header {
+    position: fixed !important;
+    top: calc(var(--top-bar-height)) !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 1001 !important;
+}
+
+/* Header logo */
+.logo { display:flex; align-items:center; gap:10px; }
+.logo-img { height:50px; width:auto; max-width:150px; }
+.logo-text { font-size:1.25rem; font-weight:700; color:#2c3e50; }
+
+/* Hero Slider - full viewport */
+/* Hero Slider - full viewport */
+.hero-slider {
+    position: relative;
+    margin-top: calc(var(--top-bar-height) + var(--header-height));
+    height: calc(100vh - (var(--top-bar-height) + var(--header-height)));
+    min-height: 500px;
+    overflow: hidden;
+    background: #d9d9d9;
+}
+
+.hero-slider .slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slider .slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-slider .slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+.hero-slider .slide-background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slider .slide-background img,
+.hero-slider .img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.hero-slider .slide-content {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-slider .hero-main-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-slider .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border: none;
+    padding: 20px 15px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+}
+
+.hero-slider .prev-btn { left: 18px; }
+.hero-slider .next-btn { right: 18px; }
+
+.hero-slider .slider-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+}
+
+.hero-slider .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-slider .dot.active {
+    background: #fff;
+    transform: scale(1.2);
+}
+
+
+/* Hero Navigation */
+.hero-navigation {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+.hero-navigation ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-navigation a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    padding: 10px 0;
+    position: relative;
+}
+
+.hero-navigation a:hover,
+.hero-navigation a.active {
+    color: #f8f9fa;
+}
+
+.hero-navigation a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+}
+
+/* Hero Main Content */
+.slide-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-main-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-main-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.divider {
+    width: 100px;
+    height: 3px;
+    background-color: white;
+    margin: 30px auto;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.hero-main-content p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.cta-button:hover {
+    background-color: white;
+    color: #2c3e50;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Slider controls */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border: none;
+    padding: 20px 15px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 20;
+    backdrop-filter: blur(5px);
+}
+
+.prev-btn { left: 18px; }
+.next-btn { right: 18px; }
+
+.slider-btn:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 20;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #fff;
+    transform: scale(1.2);
+}
+
+/* Service Times Section */
+.service-times {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.service-times h3 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.times-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.time-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.time-card h4 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.time-card p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .hero-main-content h1 { font-size: 3rem; }
+    .hero-main-content p { font-size: 1.2rem; }
+}
+
+@media (max-width: 768px) {
+    .hero-slider { height: 70vh; }
+    .logo-img { height:40px; }
+
+    .hero-navigation ul {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .hero-navigation a {
+        font-size: 1rem;
+    }
+
+    .hero-main-content h1 { font-size: 2.5rem; }
+    .hero-main-content p { font-size: 1.1rem; }
+
+    .slider-btn {
+        padding: 15px 10px;
+        font-size: 1.5rem;
+    }
+
+    .contact-info {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-slider {
+        margin-top: calc(50px + 60px);
+        height: 60vh;
+    }
+
+    .logo-img { height:34px; }
+
+    .hero-navigation ul {
+        gap: 15px;
+    }
+
+    .hero-navigation a {
+        font-size: 0.9rem;
+    }
+
+    .hero-main-content h1 { font-size: 2rem; }
+    .hero-main-content p { font-size: 1rem; }
+
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+/* Alternative: Pure Rhombus Shape */
+.rhombus-shape.pure-rhombus {
+    transform: rotate(-5deg) skewX(-5deg);
+    background: linear-gradient(135deg, #32229c, #2980b9);
+    clip-path: polygon(0 10%, 10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%);
+    padding: 50px 30px;
+    border: none;
+}
+
+.rhombus-shape.pure-rhombus::before {
+    display: none;
+}
+
+/* Small helpers */
+.img-responsive { max-width:100%; height:auto; display:block; }
+.thumbnail { width:100%; max-width:300px; height:200px; object-fit:cover; }
+
+/* Welcome Section */
+.welcome-section {
+    padding: 60px 0;
+    background-color: #f3f5f5;
+    position: relative;
+}
+
+.rhombus-shape.pure-rhombus {
+    width: 30%;
+    margin-left: auto;
+    margin-right: 20px;
+    margin-bottom: 25px;
+    transform: skew(-20deg, 0);
+    background: linear-gradient(135deg, #32229c, #2980b9);
+    padding: 15px 25px;
+    position: relative;
+    z-index: 2;
+    clip-path: none;
+}
+
+.rhombus-shape .welcome-subtitle,
+.rhombus-shape .welcome-main-title {
+    transform: skew(20deg, 0);
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.rhombus-shape .welcome-subtitle {
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+.rhombus-shape .welcome-main-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.welcome-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.welcome-image {
+    flex: 0 0 45%;
+    max-width: 45%;
+    margin-top: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    background-color: #f5f5f5;
+}
+
+.welcome-img {
+    position: static;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.welcome-text {
+    flex: 0 0 55%;
+    max-width: 55%;
+    padding-left: 20px;
+}
+
+.welcome-text p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+/* Responsive design for welcome section */
+@media screen and (max-width: 768px) {
+    .rhombus-shape.pure-rhombus {
+        width: 90%;
+        margin: 0 auto 30px;
+        transform: none;
+        padding: 20px;
+    }
+
+    .rhombus-shape .welcome-subtitle,
+    .rhombus-shape .welcome-main-title {
+        transform: none;
+        text-align: center;
+    }
+
+    .welcome-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .welcome-image {
+        margin-top: 0;
+    }
+
+    .welcome-image,
+    .welcome-text {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-left: 0;
+    }
+
+    .image-container {
+        padding-bottom: 66.67%;
+    }
+}
+
+/* Invitation Section */
+.invitation-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+}
+
+.invitation-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Invitation Image Styles */
+.invitation-image {
+    position: relative;
+    margin-top: 40px;
+}
+
+.invite-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Right Side - Stacked Boxes */
+.invitation-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 500px;
+}
+
+/* Event Details Box */
+.event-details-box {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #32229c;
+    text-align: center;
+    flex: 1;
+}
+
+.welcome-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-info {
+    text-align: center;
+}
+
+.event-time h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #32229c;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.venue {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.time {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #e74c3c;
+    background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: inline-block;
+    margin-top: 8px;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+/* Upcoming Events Box */
+.upcoming-events-box {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    padding: 25px;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 15px 35px rgba(52, 152, 219, 0.3);
+    text-align: center;
+    flex: 1;
+}
+
+.events-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.events-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.events-button {
+    display: inline-block;
+    background: white;
+    color: #3498db;
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+    font-size: 1rem;
+}
+
+.events-button:hover {
+    background: transparent;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .invitation-content {
+        gap: 40px;
+    }
+
+    .invite-img {
+        height: 550px;
+    }
+
+    .event-details-box,
+    .upcoming-events-box {
+        padding: 30px;
+    }
+
+    .welcome-title {
+        font-size: 1.6rem;
+    }
+
+    .event-time h3 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .invitation-section {
+        padding: 60px 0;
+    }
+
+    .invitation-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .invite-img {
+        height: 400px;
+    }
+
+    .invitation-right {
+        gap: 25px;
+        height: auto;
+    }
+
+    .event-details-box,
+    .upcoming-events-box {
+        padding: 25px;
+    }
+
+    .welcome-title {
+        font-size: 1.4rem;
+    }
+
+    .event-time h3 {
+        font-size: 1.6rem;
+    }
+
+    .venue {
+        font-size: 1.1rem;
+    }
+
+    .time {
+        font-size: 1.3rem;
+        padding: 12px 25px;
+    }
+
+    .events-title {
+        font-size: 1.4rem;
+    }
+
+    .events-description {
+        font-size: 1rem;
+    }
+
+    .events-button {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .invitation-section {
+        padding: 40px 0;
+    }
+
+    .invite-img {
+        height: 300px;
+    }
+
+    .event-details-box,
+    .upcoming-events-box {
+        padding: 20px;
+    }
+
+    .welcome-title {
+        font-size: 1.2rem;
+    }
+
+    .event-time h3 {
+        font-size: 1.4rem;
+    }
+
+    .venue {
+        font-size: 1rem;
+    }
+
+    .time {
+        font-size: 1.1rem;
+        padding: 10px 20px;
+    }
+
+    .events-title {
+        font-size: 1.2rem;
+    }
+
+    .events-description {
+        font-size: 0.9rem;
+    }
+
+    .events-button {
+        padding: 10px 25px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ---------- New Navy Footer ---------- */
+.new-footer {
+    background-color: #001f3f;
+    color: white;
+    padding: 40px 20px 30px 20px;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0px;
+    border: none;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Row 1: Bible verse */
+.footer-verse {
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    padding: 0 15px;
+}
+
+/* Row 2: Social icons */
+.footer-social {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.footer-social a {
+    color: white;
+    font-size: 2rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.footer-social a:hover {
+    transform: scale(1.2);
+    color: #ffd700;
+}
+
+/* Row 3: Ministry name & copyright */
+.footer-copyright .ministry-name {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.footer-copyright .copyright {
+    font-weight: 600;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .footer-verse {
+        font-size: 1.1rem;
+    }
+
+    .footer-social a {
+        font-size: 1.8rem;
+        gap: 15px;
+    }
+
+    .footer-copyright .ministry-name {
+        font-size: 1.2rem;
+    }
+}
+
+/* --------------------------------
+   Hero Section (church version)
+----------------------------------- */
+
+.ch-hero {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Blurred card */
+.ch-hero-card {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    width: 100%;
+    padding: 2.5rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: left;
+}
+
+/* Main heading */
+.ch-hero-card h1 {
+    font-size: clamp(2.2rem, 8vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Prefix (the "#" symbol) */
+.ch-hero-card .ch-prefix {
+    font-size: 0.8em;
+    font-weight: 300;
+    margin-right: 0.25rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Description paragraph */
+.ch-hero-card p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 600px;
+}
+
+/* Button */
+.ch-hero-card .ch-btn {
+    display: inline-block;
+    background: white;
+    color: #1e2a3a;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.9rem 2.2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.ch-hero-card .ch-btn:hover {
+    background: transparent;
+    color: white;
+    border-color: white;
+    transform: scale(1.05);
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .ch-hero-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .ch-hero-card p {
+        font-size: 1rem;
+    }
+}
+
+/* Ministries Grid Section */
+.ministries-grid {
+    padding: 60px 0;
+    background-color: #0637e7a5;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #f2f4f7;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.ministry-card {
+    text-decoration: none;
+    color: inherit;
+    background: rgb(48, 23, 23);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(228, 206, 206, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.ministry-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(154, 131, 131, 0.15);
+}
+
+.card-logo {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background-color: #ebe5e5;
+}
+
+.card-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hover-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.ministry-card:hover .hover-description {
+    opacity: 1;
+}
+
+.ministry-name {
+    padding: 15px 10px;
+    margin: 0;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    background: white;
+    border-top: 1px solid #eee;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .grid-cards {
+        gap: 20px;
+    }
+
+    .ministry-name {
+        font-size: 1rem;
+        padding: 12px 5px;
+    }
+}
+
+/* Make sure content below header is not hidden when header is fixed:
+   The header is placed at top:36px in header.css and the top bar is 36px tall.
+   We add top padding on the main content areas as needed (e.g. flyer-banner uses margin-top).
+*/
