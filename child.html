@@ -17,6 +17,7 @@
             --light-yellow: #FFFACD;
             --white: #FFFFFF;
             --light-purple: #E6E6FA;
+            --black: #000000;
         }
 
         * {
@@ -31,15 +32,23 @@
         }
 
         body {
-            background-color: #f9f9f9;
+            background: url("images/kidbackground.jpg") center/cover no-repeat fixed;
+            background-color: #f7f6f6;
             color: #333;
             line-height: 1.6;
+            min-height: 100vh;
             padding-top: 140px; /* Added to account for fixed header */
         }
 
         /* Section Styles */
         section {
             padding: 4rem 0;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(5px);
+        }
+
+        section.hero {
+            background: rgba(255, 255, 255, 0.85);
         }
 
         .section-title {
@@ -68,12 +77,14 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(to right, var(--light-blue), var(--light-purple));
+            background-color: rgba(96, 62, 217, 0.85);
             padding: 4rem 0;
             text-align: center;
             position: relative;
             overflow: hidden;
             margin-top: -40px; /* Adjust for header height */
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+            backdrop-filter: blur(6px);
         }
 
         .hero h2 {
@@ -108,7 +119,7 @@
         }
         
         .mission-card {
-            background-color: white;
+            background-color: rgba(5, 200, 244, 0.92);
             border-radius: 20px;
             padding: 2rem;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
@@ -127,7 +138,7 @@
         }
         
         .mission-card h3 {
-            color: var(--blue);
+            color: var(--black);
             margin-bottom: 1.5rem;
             font-size: 1.8rem;
         }
@@ -147,7 +158,7 @@
         }
 
         .service-card {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.92);
             border-radius: 20px;
             padding: 2rem;
             width: 300px;
@@ -178,10 +189,11 @@
 
         /* Wellness & Contact */
         .wellness-contact {
-            background-color: var(--light-purple);
+            background-color: rgba(230, 230, 250, 0.75);
             border-radius: 20px;
             padding: 3rem;
             margin-top: 2rem;
+            backdrop-filter: blur(4px);
         }
 
         .wellness-grid {
@@ -192,7 +204,7 @@
         }
 
         .wellness-item {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.88);
             padding: 2rem;
             border-radius: 15px;
             text-align: center;
@@ -206,12 +218,13 @@
         }
 
         .contact-card {
-            background: linear-gradient(135deg, var(--blue), var(--purple));
+            background: rgba(65, 105, 225, 0.92);
             color: white;
             padding: 2.5rem;
             border-radius: 20px;
             margin-top: 2rem;
             text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
 
         .contact-card h3 {
@@ -242,7 +255,7 @@
 
         /* Sermon Notes Cards */
         .sermon-card {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.92);
             border-radius: 20px;
             padding: 1.5rem;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
@@ -283,7 +296,7 @@
 
         /* Values Cards (Pillars) */
         .pillar-card {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.92);
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -332,7 +345,7 @@
 
         /* Programs Cards */
         .program-card {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.92);
             border-radius: 15px;
             padding: 1.5rem;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
@@ -390,7 +403,7 @@
         .alternating-text {
             flex: 1;
             padding: 2rem;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.92);
             height: 300px;
             display: flex;
             flex-direction: column;
@@ -855,27 +868,33 @@
         const values = [
             {
                 name: "Love",
-                description: "Showing God's unconditional love to everyone through kindness, compassion, and friendship."
+                description: "Showing God's unconditional love to everyone through kindness, compassion, and friendship.",
+                image: "images/kidlove.png"
             },
             {
                 name: "Faith",
-                description: "Building unwavering trust in God's promises and plans for our lives."
+                description: "Building unwavering trust in God's promises and plans for our lives.",
+                image: "images/kidfaith.png"
             },
             {
                 name: "Joy",
-                description: "Celebrating life with the happiness that comes from knowing Jesus as our Savior."
+                description: "Celebrating life with the happiness that comes from knowing Jesus as our Savior.",
+                image: "images/kidjoy.png"
             },
             {
                 name: "Hope",
-                description: "Looking forward with confidence to God's good plans for our future."
+                description: "Looking forward with confidence to God's good plans for our future.",
+                image: "images/kidhope.png"
             },
             {
-                name: "Service",
-                description: "Following Jesus' example by helping others and sharing God's love in practical ways."
+                name: "Kindness",
+                description: "Showing compassion and consideration to others, just like Jesus did.",
+                image: "images/kindness.png"
             },
             {
                 name: "Integrity",
-                description: "Being honest and doing what's right even when no one is watching."
+                description: "Being honest and doing what's right even when no one is watching.",
+                image: "images/intkid.png"
             }
         ];
         
@@ -938,8 +957,7 @@
             card.className = 'pillar-card';
             card.innerHTML = `
                 <div class="pillar-image">
-                    <img src="" alt="${value.name}">
-                    <div class="pillar-overlay">${value.name}</div>
+                    <img src="${value.image || ''}" alt="${value.name}">
                 </div>
                 <div class="pillar-content">
                     <h4>${value.name}</h4>
