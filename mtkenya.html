@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyanza Region - Jesus Healing Sanctuary Ministries</title>
+    <title>Mtkenya Region - Jesus Healing Sanctuary Ministries</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -31,11 +31,19 @@
 
         /* Top Contact Bar */
         .top-contact-bar {
-    background: #32229c;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #32229c;
             color: white;
             padding: 8px 0;
             font-size: 0.9rem;
+            z-index: 1002;
         }
+
+        /* keep header and page content below the fixed top contact */
+        body { padding-top: var(--top-bar-height); }
 
         .contact-item {
             display: flex;
@@ -822,8 +830,8 @@
                 <div class="branch-content">
                     <h3 class="branch-name">JHSM Nyeri</h3>
                     <p class="branch-location">Regional Headquarters</p>
-                    <div class="branch-description">
-                        <p>JHSM Ikonge serves as the headquarters of the Nyanza region, strategically located in the heart of Ikonge town. The church has become a spiritual beacon in the community, drawing people from surrounding areas to experience God's love and transformation.</p>
+                    <div class="branch-description"
+                        <p>JHSM Nyeri serves as the headquarters of the Mt Kenya region, strategically located in the heart of Nyeri town. The church has become a spiritual beacon in the community, drawing people from surrounding areas to experience God's love and transformation.</p>
                         <p>Under dedicated pastoral leadership, the church has grown significantly, with vibrant ministries for children, youth, and adults. The congregation is known for its passionate worship and commitment to community outreach.</p>
                     </div>
                 </div>
@@ -870,16 +878,7 @@
                     <p>Raising a generation that tarries in His presence, hears His voice, and changes nations on their knees.</p>
                 </div>
 
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <h3>CHOSEN HEIRS</h3>
-                    <div class="service-time">
-                        <span class="time-icon">⏰</span>
-                        <h4><span>EVERY SUNDAY</span></h4>
-                    </div>
-                    <span>9:30 AM - 11:30 AM</span>
-                    <p>Where little hearts learn big truths and grow in the love of Jesus.</p>
-                </div>
+                
 
                 <!-- Service 4 -->
                 <div class="service-card">
@@ -921,7 +920,7 @@
 
     <section class="con-section">
         <div class="con-container">
-            <h2>CONTACT INFO FOR NYANZA REGION</h2>
+            <h2>CONTACT INFO FOR MT KENYA REGION</h2>
             
             <div class="con-grid">
                 <!-- Get in Touch Card -->

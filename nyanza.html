@@ -31,11 +31,19 @@
 
         /* Top Contact Bar */
         .top-contact-bar {
-             background: #32229c;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #32229c;
             color: white;
             padding: 8px 0;
             font-size: 0.9rem;
+            z-index: 1002;
         }
+
+        /* keep header and page content below the fixed top contact */
+        body { padding-top: var(--top-bar-height); }
 
         .contact-item {
             display: flex;
@@ -1001,7 +1009,7 @@
                 <div class="bio-content">
                     <h2>Nyanza Region Leadership</h2>
                     <div class="bio-text">
-                        <p>The Nyanza Region of Jesus Healing Sanctuary Ministries (JHSM) is a vibrant and growing area under dedicated leadership. Our regional overseer, together with a team of committed pastors, has faithfully overseen the spiritual growth, discipleship, and outreach efforts across the region's churches.</p>
+                        <p>The Nyanza Region of Jesus Healing Sanctuary Ministries (JHSM) is a vibrant and growing area under the dedicated leadership of our regional overseer,Rev Jackson Nyaribo, together with a team of committed pastors, has faithfully overseen the spiritual growth, discipleship, and outreach efforts across the region's churches.</p>
                         <p>Their ministry reflects a deep commitment to nurturing believers, empowering leaders, and extending the love of Christ throughout the Nyanza area, including the communities of Ikonge, Bogichoncho, and Nyamira.</p>
                     </div>
                 </div>

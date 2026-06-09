@@ -23,7 +23,7 @@
 
 /* Image Slider Section */
 .slider-section {
-    padding: 80px 0;
+    padding: calc(var(--top-bar-height) + var(--header-height)) 0 80px;
     background: white;
 }
 

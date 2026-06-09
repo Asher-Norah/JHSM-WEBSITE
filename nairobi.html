@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyanza Region - Jesus Healing Sanctuary Ministries</title>
+    <title>Nairobi Region - Jesus Healing Sanctuary Ministries</title>
     <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -31,11 +31,19 @@
 
         /* Top Contact Bar */
         .top-contact-bar {
-    background: #32229c;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #32229c;
             color: white;
             padding: 8px 0;
             font-size: 0.9rem;
+            z-index: 1002;
         }
+
+        /* keep header and page content below the fixed top contact */
+        body { padding-top: var(--top-bar-height); }
 
         .contact-item {
             display: flex;
@@ -804,7 +812,7 @@
                     <h2>Nairobi Region Leadership</h2>
                     <div class="bio-text">
                         <p>The Nairobi Region of Jesus Healing Sanctuary Ministries (JHSM) is a vibrant and growing area under dedicated leadership. Our regional overseer, together with a team of committed pastors, has faithfully overseen the spiritual growth, discipleship, and outreach efforts across the region's churches.</p>
-                        <p>Their ministry reflects a deep commitment to nurturing believers, empowering leaders, and extending the love of Christ throughout the Nyanza area, including the communities of Ikonge, Bogichoncho, and Nyamira.</p>
+                        <p>Their ministry reflects a deep commitment to nurturing believers, empowering leaders, and extending the love of Christ throughout the Nairobi area.</p>
                     </div>
                 </div>
             </div>
@@ -928,7 +936,7 @@
                 <h2>Join Us This Sunday</h2>
                 <p>Experience the love of God and the power of His presence</p>
                 <div class="flyer-image">
-                    <img src="images/jhsm" alt="Church Invite" class="flyer-img">  
+                    <img src="images/invite.jpg" alt="Church Invite" class="flyer-img">  
                 </div>
             </div>
         </div>

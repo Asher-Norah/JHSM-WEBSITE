@@ -3,657 +3,731 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eastern Region - Jesus Healing Sanctuary Ministries</title>
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="regions.css">
+    <title>Eldoret Region - Jesus Healing Sanctuary Ministries</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <style>
-        /* ===== CSS VARIABLES ===== */
-        :root {
-            --gold:       #c9a84c;
-            --gold-light: #e8c97a;
-            --gold-dark:  #8b6914;
-            --navy:       #0d1b3e;
-            --navy-mid:   #1a2f5e;
-            --navy-light: #243a70;
-            --cream:      #fdf8f0;
-            --warm-white: #fffdf8;
-            --charcoal:   #2c3040;
-            --muted:      #6b7280;
-            --shadow-gold: rgba(201,168,76,0.25);
-            --font-display: 'Cormorant Garamond', Georgia, serif;
-            --font-body:    'Raleway', sans-serif;
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        /* ===== RESET / BASE ===== */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
 
         body {
-            font-family: var(--font-body);
-            background-color: var(--cream);
-            color: var(--charcoal);
-            line-height: 1.7;
-            overflow-x: hidden;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
         }
-
-        img { max-width: 100%; display: block; }
-        a   { text-decoration: none; }
 
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 15px;
         }
 
-        /* ===== TOP CONTACT BAR ===== */
+        /* Top Contact Bar */
         .top-contact-bar {
-            background: linear-gradient(90deg, var(--navy) 0%, var(--navy-mid) 60%, var(--navy-light) 100%);
-            padding: 10px 0;
-            font-size: 0.82rem;
-            font-family: var(--font-body);
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            border-bottom: 2px solid var(--gold);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #32229c;
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+            z-index: 1002;
         }
-        .contact-info { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; color: rgba(255,255,255,0.88); }
-        .contact-icon { font-size: 0.9rem; margin: 0 4px; }
 
-        /* ===== HEADER ===== */
+        /* keep header and page content below the fixed top contact */
+        body { padding-top: var(--top-bar-height); }
+
+        .contact-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            margin-right: 5px;
+        }
+
+        /* Header */
         .header {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-            padding: 18px 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+            background-color: rgb(247, 243, 243);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
-        .header .container { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-        .logo { display: flex; align-items: center; gap: 14px; }
-        .logo-img { height: 52px; width: 52px; object-fit: contain; filter: drop-shadow(0 0 8px var(--shadow-gold)); }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
         .logo-text {
-            font-family: var(--font-display);
-            font-size: 1.35rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            color: var(--gold-light);
-            letter-spacing: 0.5px;
-            line-height: 1.2;
+            color: #2c5aa0;
         }
-        .navigation ul { display: flex; gap: 28px; list-style: none; }
+
+        .navigation ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
         .navigation a {
-            font-family: var(--font-body);
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.78);
-            transition: color 0.25s;
-            position: relative;
-            padding-bottom: 4px;
-        }
-        .navigation a::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0;
-            width: 0; height: 2px;
-            background: var(--gold);
-            transition: width 0.3s;
-        }
-        .navigation a:hover { color: var(--gold-light); }
-        .navigation a:hover::after { width: 100%; }
-
-        .mobile-menu { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-        .mobile-menu span { display: block; width: 26px; height: 2px; background: var(--gold-light); border-radius: 2px; }
-
-        /* ===== SLIDER SECTION ===== */
-        .slider-section {
-            padding: 60px 0 50px;
-            background:
-                radial-gradient(ellipse at 80% 10%, rgba(201,168,76,0.08) 0%, transparent 55%),
-                radial-gradient(ellipse at 10% 90%, rgba(13,27,62,0.06) 0%, transparent 55%),
-                var(--cream);
-            position: relative;
-        }
-        .slider-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--navy), var(--gold), var(--navy));
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .section-title {
-            font-family: var(--font-display);
-            font-size: 2.6rem;
-            font-weight: 700;
-            color: var(--navy);
-            text-align: center;
-            letter-spacing: 3px;
-            margin-bottom: 36px;
-            position: relative;
+        .navigation a:hover {
+            color: #2c5aa0;
         }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 70px;
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
             height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-light));
-            margin: 14px auto 0;
-            border-radius: 2px;
+            width: 25px;
+            background-color: #333;
+            margin: 3px 0;
+            transition: 0.3s;
         }
 
-        /* Slider */
-        .image-slider { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 20px 60px rgba(13,27,62,0.22); }
-        .slider-container { display: flex; position: relative; }
-        .slide { display: none; width: 100%; flex-shrink: 0; position: relative; }
-        .slide.active { display: block; }
-        .slide-img { width: 100%; height: 480px; object-fit: cover; }
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #f5f105;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #e6b301;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Slider Section */
+        .slider-section {
+            padding: 60px 0;
+            background: linear-gradient(rgba(44, 90, 160, 0.8), rgba(44, 90, 160, 0.9)), url('https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .slider-section .section-title {
+            color: white;
+        }
+
+        .image-slider {
+            position: relative;
+            max-width: 100%;
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide-img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            max-width: 100%;
+        }
+
         .slide-caption {
             position: absolute;
-            bottom: 30px; left: 30px;
-            font-family: var(--font-display);
-            font-size: 2rem;
-            font-weight: 700;
-            font-style: italic;
-            color: #fff;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.6);
-            letter-spacing: 4px;
-            padding: 8px 22px;
-            background: linear-gradient(90deg, rgba(13,27,62,0.65), transparent);
-            border-left: 4px solid var(--gold);
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(44, 90, 160, 0.8);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
         }
+
         .slider-btn {
             position: absolute;
-            top: 50%; transform: translateY(-50%);
-            background: rgba(13,27,62,0.55);
-            color: var(--gold-light);
-            border: 1px solid rgba(201,168,76,0.4);
-            font-size: 1.4rem;
-            padding: 12px 18px;
-            cursor: pointer;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            transition: all 0.3s;
-            backdrop-filter: blur(4px);
-            z-index: 10;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .slider-btn:hover { background: var(--navy); border-color: var(--gold); }
-        .prev-btn { left: 18px; }
-        .next-btn { right: 18px; }
-        .slider-dots { text-align: center; position: absolute; bottom: 16px; right: 20px; display: flex; gap: 8px; }
-        .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.45); cursor: pointer; transition: all 0.3s; }
-        .dot.active { background: var(--gold); transform: scale(1.3); }
 
-        /* ===== REVEREND BIO SECTION ===== */
+        .slider-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .prev-btn {
+            left: 20px;
+        }
+
+        .next-btn {
+            right: 20px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dot.active {
+            background: white;
+        }
+
+        /* Reverend and Biography Section */
         .reverend-bio-section {
             padding: 80px 0;
-            background:
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%23c9a84c' opacity='0.18'/%3E%3C/svg%3E"),
-                linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 50%, #122246 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .reverend-bio-section::before {
-            content: '';
-            position: absolute;
-            top: -120px; right: -120px;
-            width: 380px; height: 380px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(201,168,76,0.12), transparent 70%);
-            pointer-events: none;
-        }
-        .reverend-bio-section::after {
-            content: '';
-            position: absolute;
-            bottom: -80px; left: -80px;
-            width: 280px; height: 280px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(201,168,76,0.09), transparent 70%);
-            pointer-events: none;
+            background-color:  rgba(185, 184, 198, 0.436);
         }
 
         .reverend-bio-content {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
+            justify-content: space-between;
             gap: 40px;
-            position: relative;
-            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         .reverend-photo {
-            flex: 0 0 200px;
+            flex: 1;
             text-align: center;
         }
+
         .reverend-img {
-            width: 180px;
-            height: 220px;
+            width: 100%;
+            max-width: 320px;
+            height: 420px;
             object-fit: cover;
-            border-radius: 12px;
-            border: 3px solid var(--gold);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 0 6px rgba(201,168,76,0.15);
-            margin: 0 auto;
-            transition: transform 0.3s;
+            object-position: top center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: block;
         }
-        .reverend-img:hover { transform: translateY(-4px); }
+
         .photo-caption {
-            margin-top: 14px;
-            font-family: var(--font-display);
-            font-size: 1.05rem;
-            font-style: italic;
-            color: var(--gold-light);
+            margin-top: 15px;
+            font-weight: 600;
+            color: #2c5aa0;
             line-height: 1.4;
         }
 
         .bio-content {
-            flex: 1;
-            padding: 10px 0;
-        }
-        .bio-content h2 {
-            font-family: var(--font-display);
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--gold-light);
-            margin-bottom: 22px;
-            letter-spacing: 1px;
-        }
-        .bio-content h2::after {
-            content: '';
-            display: block;
-            width: 50px; height: 2px;
-            background: var(--gold);
-            margin-top: 10px;
-            border-radius: 2px;
-        }
-        .bio-text p {
-            color: rgba(255,255,255,0.82);
-            font-size: 0.97rem;
-            font-weight: 300;
-            line-height: 1.85;
+            flex: 2;
+            text-align: center;
         }
 
-        /* ===== BRANCHES SECTION ===== */
+        .bio-content h2 {
+            color: #2c5aa0;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        .bio-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        /* Branches Section */
         .branches-section {
             padding: 80px 0;
-            background:
-                radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.06) 0%, transparent 60%),
-                var(--warm-white);
+            background-color: #557ba1;
         }
 
         .branch-profile {
             display: flex;
-            align-items: stretch;
-            gap: 0;
-            margin-bottom: 50px;
-            border-radius: 16px;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+            background: white;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(13,27,62,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        .branch-profile:hover { transform: translateY(-4px); box-shadow: 0 18px 50px rgba(13,27,62,0.16); }
 
-        .branch-image { flex: 0 0 42%; overflow: hidden; }
-        .branch-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
-        .branch-profile:hover .branch-img { transform: scale(1.04); }
+        .branch-profile:nth-child(even) {
+            flex-direction: row-reverse;
+        }
 
         .branch-content {
             flex: 1;
-            padding: 40px 44px;
-            background: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border-left: 5px solid var(--gold);
-            position: relative;
+            padding: 30px;
         }
-        .branch-profile:nth-child(even) .branch-content { border-left: none; border-right: 5px solid var(--gold); }
 
         .branch-name {
-            font-family: var(--font-display);
-            font-size: 1.9rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 6px;
+            color: #0a58cd;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
         }
+
         .branch-location {
-            font-family: var(--font-body);
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--gold-dark);
-            margin-bottom: 18px;
+            color: #e6b301;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
         }
-        .branch-description p { color: var(--muted); font-size: 0.95rem; line-height: 1.8; }
+
+        .branch-description p {
+            margin-bottom: 15px;
+        }
+
+        .branch-image {
+            flex: 1;
+        }
+
+        .branch-img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
 
         .closing-paragraph {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-            border-radius: 16px;
-            padding: 40px 48px;
-            margin-top: 20px;
-            border-left: 6px solid var(--gold);
-            box-shadow: 0 8px 30px rgba(13,27,62,0.15);
-        }
-        .closing-paragraph p {
-            color: rgba(255,255,255,0.85);
-            font-size: 1.05rem;
-            font-style: italic;
-            line-height: 1.85;
-            font-family: var(--font-display);
+            text-align: center;
+            max-width: 800px;
+            margin: 40px auto 0;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            font-size: 1.1rem;
         }
 
-        /* ===== SERVICES SECTION ===== */
+        /* Services Section */
         .services-section {
             padding: 80px 0;
-            background:
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect x='38' y='0' width='4' height='80' fill='%23c9a84c' opacity='0.05'/%3E%3Crect x='0' y='38' width='80' height='4' fill='%23c9a84c' opacity='0.05'/%3E%3C/svg%3E"),
-                linear-gradient(170deg, #0a1630 0%, var(--navy) 50%, #122246 100%);
-        }
-
-        .services-section .section-title { color: var(--gold-light); }
-        .services-section .section-title::after { background: linear-gradient(90deg, var(--gold), rgba(201,168,76,0.3)); }
-
-        .section-subtitle {
-            text-align: center;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.95rem;
-            font-weight: 300;
-            letter-spacing: 1px;
-            margin-bottom: 50px;
+            background-color: rgba(185, 184, 198, 0.436);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
+
         .service-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(201,168,76,0.25);
-            border-radius: 16px;
-            padding: 36px 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(6px);
-            transition: all 0.35s;
+            background: #f5f7f9;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #2c5aa0;
         }
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
-            transform: scaleX(0);
-            transition: transform 0.35s;
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        .service-card:hover { background: rgba(255,255,255,0.09); border-color: rgba(201,168,76,0.55); transform: translateY(-6px); box-shadow: 0 12px 35px rgba(0,0,0,0.35); }
-        .service-card:hover::before { transform: scaleX(1); }
 
         .service-card h3 {
-            font-family: var(--font-display);
-            font-size: 1.45rem;
-            font-weight: 700;
-            color: var(--gold-light);
-            letter-spacing: 2px;
-            margin-bottom: 16px;
+            color: #2c5aa0;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
         }
-        .service-time {
-            margin-bottom: 14px;
-        }
-        .time-icon { font-size: 1.2rem; display: block; margin-bottom: 6px; }
-        .service-card h4 {
-            font-family: var(--font-body);
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.75);
-        }
-        .service-card span {
-            display: block;
-            font-size: 0.9rem;
-            color: var(--gold);
-            font-weight: 600;
-            margin-top: 4px;
-        }
-        .service-card p { color: rgba(255,255,255,0.58); font-size: 0.88rem; line-height: 1.7; margin-top: 12px; }
 
-        /* ===== FLYER SECTION ===== */
+        .service-time {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .time-icon {
+            font-size: 1.2rem;
+        }
+
+        .service-card p {
+            color: #555;
+            font-style: italic;
+        }
+
+        /* Flyer Section */
         .flyer-section {
             padding: 80px 0;
-            background:
-                radial-gradient(ellipse at center top, rgba(201,168,76,0.1) 0%, transparent 60%),
-                var(--cream);
-        }
-        .flyer-content { text-align: center; }
-        .flyer-content h2 {
-            font-family: var(--font-display);
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 10px;
-        }
-        .flyer-content > p { color: var(--muted); font-size: 1rem; margin-bottom: 36px; letter-spacing: 0.5px; }
-        .flyer-image { display: flex; justify-content: center; }
-        .flyer-img {
-            max-width: 500px;
-            width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(13,27,62,0.2), 0 0 0 4px var(--gold), 0 0 0 8px rgba(201,168,76,0.2);
+            background: linear-gradient(135deg, #2c5aa0, #1a3a6b);
+            color: white;
+            text-align: center;
         }
 
-        /* ===== CONTACT SECTION ===== */
+        .flyer-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .flyer-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .flyer-image {
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .flyer-img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        /* Responsive image sizes */
+        @media (max-width: 1024px) {
+            .slide-img { height: 420px; }
+            .reverend-img { height: 360px; }
+            .branch-img { height: 320px; }
+            .flyer-img { height: 420px; }
+        }
+
+        @media (max-width: 768px) {
+            .slide-img { height: 280px; }
+            .reverend-img { height: 280px; }
+            .branch-img { height: 220px; }
+            .flyer-img { height: 260px; }
+        }
+
+        /* Contact Section */
         .con-section {
             padding: 80px 0;
-            background: linear-gradient(150deg, var(--navy) 0%, #0e1f4a 50%, var(--navy-mid) 100%);
-            position: relative;
-            overflow: hidden;
+            background-color:  rgba(185, 184, 198, 0.436);
         }
-        .con-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23c9a84c' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E") repeat;
-            pointer-events: none;
-        }
+
         .con-container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 1;
         }
-        .con-container h2 {
-            font-family: var(--font-display);
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: var(--gold-light);
+
+        .con-section h2 {
             text-align: center;
-            letter-spacing: 3px;
+            color: #2c5aa0;
             margin-bottom: 50px;
-            position: relative;
+            font-size: 2rem;
         }
-        .con-container h2::after {
-            content: '';
-            display: block;
-            width: 60px; height: 3px;
-            background: var(--gold);
-            margin: 14px auto 0;
-            border-radius: 2px;
-        }
+
         .con-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
+
         .con-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(201,168,76,0.3);
-            border-radius: 16px;
-            padding: 36px 32px;
-            backdrop-filter: blur(8px);
-            transition: all 0.3s;
-        }
-        .con-card:hover { background: rgba(255,255,255,0.09); border-color: rgba(201,168,76,0.6); transform: translateY(-4px); }
-        .con-card h3 {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--gold-light);
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(201,168,76,0.25);
-        }
-        .con-info p { color: rgba(255,255,255,0.85); margin-bottom: 6px; font-size: 0.95rem; }
-        .con-phone { display: block; color: var(--gold-light); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
-        .con-email { color: rgba(255,255,255,0.65); font-size: 0.9rem; transition: color 0.2s; }
-        .con-email:hover { color: var(--gold-light); }
-        .con-location-table p { color: rgba(255,255,255,0.8); font-size: 0.92rem; line-height: 1.75; margin-bottom: 4px; }
-        .con-giving-table { width: 100%; border-collapse: collapse; }
-        .con-giving-table th, .con-giving-table td {
-            padding: 10px 0;
-            font-size: 0.92rem;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-        .con-giving-table th { color: rgba(255,255,255,0.55); font-weight: 500; text-align: left; padding-right: 16px; }
-        .con-giving-table td { color: var(--gold-light); font-weight: 600; }
-
-        /* ===== MAP SECTION ===== */
-        .map-section {
-            padding: 70px 0;
-            background:
-                radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.07) 0%, transparent 60%),
-                var(--warm-white);
-        }
-        .map-title {
-            font-family: var(--font-display);
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: var(--navy);
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             text-align: center;
-            letter-spacing: 3px;
-            margin-bottom: 36px;
-            text-transform: uppercase;
-            position: relative;
-        }
-        .map-title::after {
-            content: '';
-            display: block;
-            width: 60px; height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--gold-light));
-            margin: 14px auto 0;
-            border-radius: 2px;
-        }
-        .map-container {
-            width: 100%;
-            height: 420px;
-            border-radius: 18px;
-            box-shadow: 0 16px 50px rgba(13,27,62,0.2), 0 0 0 4px rgba(201,168,76,0.25);
-            overflow: hidden;
-            z-index: 1;
-        }
-        .map-button-wrapper { text-align: center; margin-top: 30px; }
-        .directions-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-            color: var(--gold-light);
-            font-family: var(--font-body);
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            padding: 15px 44px;
-            border-radius: 50px;
-            border: 2px solid var(--gold);
-            transition: all 0.3s;
-            box-shadow: 0 6px 20px rgba(13,27,62,0.25);
-        }
-        .directions-btn:hover {
-            background: var(--gold);
-            color: var(--navy);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 28px rgba(201,168,76,0.35);
         }
 
-        /* ===== FOOTER ===== */
-        .new-footer {
-            background: linear-gradient(180deg, #070f26 0%, var(--navy) 100%);
-            padding: 0;
-            border-top: 3px solid var(--gold);
+        .con-card h3 {
+            color: #2c5aa0;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
         }
-        .footer-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 50px 24px 36px;
+
+        .con-info {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 28px;
+            gap: 15px;
         }
-        .footer-verse {
-            font-family: var(--font-display);
-            font-style: italic;
-            font-size: 1.05rem;
-            color: rgba(255,255,255,0.65);
-            text-align: center;
-            line-height: 1.75;
-            padding: 0 20px;
-            border-left: 3px solid var(--gold);
-            border-right: 3px solid var(--gold);
-        }
-        .footer-social { display: flex; gap: 20px; }
-        .footer-social a {
-            width: 42px; height: 42px;
-            border-radius: 50%;
-            border: 1.5px solid rgba(201,168,76,0.4);
-            display: flex; align-items: center; justify-content: center;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.95rem;
-            transition: all 0.3s;
-        }
-        .footer-social a:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(201,168,76,0.12); transform: translateY(-3px); }
-        .footer-copyright { text-align: center; }
-        .ministry-name {
-            font-family: var(--font-display);
-            font-size: 1.15rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            color: var(--gold-light);
-            margin-bottom: 6px;
-        }
-        .copyright { font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 0.5px; }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 900px) {
-            .reverend-bio-content { flex-direction: column; align-items: center; text-align: center; }
-            .bio-content h2::after { margin: 10px auto 0; }
-            .branch-profile { flex-direction: column !important; }
-            .branch-image { flex: none; width: 100%; height: 260px; }
-            .branch-content { border-left: none !important; border-right: none !important; border-top: 4px solid var(--gold); }
+        .con-phone, .con-email {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.1rem;
         }
-        @media (max-width: 600px) {
-            .section-title { font-size: 1.9rem; }
-            .slide-img { height: 280px; }
-            .services-grid { grid-template-columns: 1fr; }
-            .navigation { display: none; }
-            .mobile-menu { display: flex; }
+
+        .con-email:hover {
+            color: #2c5aa0;
+            text-decoration: underline;
         }
+
+        .con-location-table, .con-giving-table {
+            width: 100%;
+            text-align: left;
+        }
+
+        .con-giving-table th, .con-giving-table td {
+            padding: 8px 0;
+        }
+
+        .con-giving-table th {
+            color: #2c5aa0;
+            font-weight: 600;
+            width: 40%;
+        }
+
+        /* Map Section */
+        .map-placeholder {
+            position: relative;
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-locations {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .location-marker {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .location-marker:hover {
+            transform: translateX(5px);
+            color: #2c5aa0;
+        }
+
+        .marker-pin {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .location-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .reverend-bio-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .branch-profile, .branch-profile:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .branch-image, .branch-content {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navigation {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .slide-img {
+                height: 350px;
+            }
+            
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .footer-section {
+        margin-bottom: 25px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+/* Map Section */
+.map-section {
+    padding: 60px 0;
+    background-color: #f0f4f8;
+}
+
+.map-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.map-container {
+    width: 100%;
+    height: 400px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.map-button-wrapper {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.directions-btn {
+    display: inline-block;
+    background: #32229c;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 14px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.directions-btn:hover {
+    background: transparent;
+    color: #32229c;
+    border-color: #32229c;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .map-container {
+        height: 300px;
+    }
+    .map-title {
+        font-size: 1.8rem;
+    }
+    .directions-btn {
+        font-size: 1rem;
+        padding: 12px 30px;
+    }
+}
     </style>
 </head>
 <body>
-
     <!-- Top Contact Bar -->
     <div class="top-contact-bar">
         <div class="container">
             <div class="contact-info">
-                <span class="contact-icon">📞</span>
-                <span>+254 0724282947</span>
-                &nbsp;|&nbsp;
-                <span>+254 0720118672</span>
-                <span class="contact-icon">✉️</span>
-                <span>jhsmkenya@gmail.com</span>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>+254 0724282947</span>
+                    <span>+254 0720118672</span>
+                    <span class="contact-icon">✉️</span>
+                    <span>jhsmkenya@gmail.com</span>
+                </div>
             </div>
         </div>
     </div>
@@ -676,33 +750,44 @@
                 </ul>
             </nav>
             <div class="mobile-menu">
-                <span></span><span></span><span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </header>
 
-
     <!-- Image Slider Section -->
     <section class="slider-section">
         <div class="container">
-            <h2 class="section-title">EASTERN REGION</h2>
+            <h2 class="section-title">ELDORET REGION</h2>
+            
             <div class="image-slider">
                 <div class="slider-container">
+                    <!-- Slide 1 -->
                     <div class="slide active">
-                        <img src="images/east1.jpg" alt="Community Outreach" class="slide-img">
+                        <img src="images/ld1.jpg" alt="Word" class="slide-img">
                         <div class="slide-caption">WORD</div>
                     </div>
+                    
+                    <!-- Slide 2 -->
                     <div class="slide">
-                        <img src="images/east2.jpg" alt="Community Outreach" class="slide-img">
-                        <div class="slide-caption">COMMUNITY</div>
+                        <img src="images/ld2.jpg" alt="Worship" class="slide-img">
+                        <div class="slide-caption">SERVICE</div>
                     </div>
+                    
+                    <!-- Slide 3 -->
                     <div class="slide">
-                        <img src="images/east4.jpg" alt="Youth Fellowship" class="slide-img">
+                        <img src="images/ld3.jpg" alt="Prayer" class="slide-img">
                         <div class="slide-caption">PRAYER</div>
                     </div>
                 </div>
+                
+                <!-- Slider Controls -->
                 <button class="slider-btn prev-btn">&#10094;</button>
                 <button class="slider-btn next-btn">&#10095;</button>
+                
+                <!-- Slider Dots -->
                 <div class="slider-dots">
                     <span class="dot active" data-slide="0"></span>
                     <span class="dot" data-slide="1"></span>
@@ -712,135 +797,99 @@
         </div>
     </section>
 
-
     <!-- Reverend and Biography Section -->
     <section class="reverend-bio-section">
         <div class="container">
             <div class="reverend-bio-content">
+                <!-- Left Image - Regional Overseer -->
                 <div class="reverend-photo left-photo">
-                    <img src="images/pst peter.jpg" alt="Rev. Peter Mutua - Regional Overseer" class="reverend-img">
-                    <p class="photo-caption">Rev. Peter Mutua<br>Regional Overseer</p>
+                    <img src="images/grace.jpg" alt="Regional Overseer" class="reverend-img">
+                    <p class="photo-caption">Regional Overseer<br>Pastor Grace Ayub</p>
                 </div>
+                
+                <!-- Biography Content in Middle -->
                 <div class="bio-content">
-                    <h2>Eastern Region Leadership</h2>
+                    <h2>Eldoret Leadership</h2>
                     <div class="bio-text">
-                        <p>The Eastern Region of Jesus Healing Sanctuary Ministries (JHSM) is a vibrant and growing area under the dynamic leadership of Regional Overseer Rev. Peter Mutua. Together with his wife, Pastor Alice Mutua, they have faithfully overseen the spiritual growth, discipleship, and outreach efforts across the region's churches. Their ministry reflects a deep commitment to nurturing believers, empowering leaders, and extending the love of Christ throughout the Kajiado area.</p>
+                        <p>JHSM Eldoret, under the dedicated leadership of Pastor Grace Ayub and Pastor Joel Ayub, continues to thrive as a vibrant center of worship, discipleship, and community transformation. Rooted in the teachings of God's Word and guided by a passion for seeing lives changed through Christ, the church provides a welcoming environment where individuals and families can grow spiritually, build meaningful relationships, and discover their God-given purpose.</p>
+                        <p>Through powerful worship services, biblical teaching, prayer gatherings, youth and family ministries, and community outreach programs, JHSM Eldoret remains committed to nurturing believers and equipping them to live out their faith with confidence and integrity. Under the leadership of Pastor Grace Ayub and Pastor Joel Ayub, JHSM Eldoret continues to be a beacon of hope, faith, and transformation, bringing glory to God through its ministry and service.</p>
                     </div>
-                </div>
-                <div class="reverend-photo right-photo">
-                    <img src="images/pst alice.jpg" alt="Pastor Alice Mutua" class="reverend-img">
-                    <p class="photo-caption">Pastor Alice Mutua</p>
                 </div>
             </div>
         </div>
     </section>
-
 
     <!-- Church Branches Section -->
     <section class="branches-section">
         <div class="container">
-            <h2 class="section-title">Our Churches in Eastern Region</h2>
-
+            <h2 class="section-title">Our Church in Eldoret Region</h2>
+            
+            <!-- JHSM Ikonge - Text Left, Image Right -->
             <div class="branch-profile">
                 <div class="branch-content">
-                    <h3 class="branch-name">JHSM Thua</h3>
+                    <h3 class="branch-name">JHSM Eldoret</h3>
                     <p class="branch-location">Regional Headquarters</p>
-                    <div class="branch-description">
-                        <p>JHSM Thua, the headquarters of the Eastern region, is strategically located in Thua town, approximately 200 meters from the road on the right-hand side of the road.</p>
-                        <p>The church is under the pastoral care of Rev. Joshua Kerika and Pastor Purity Kerika, who have provided visionary leadership and shepherded the congregation with dedication.</p>
+                    <div class="branch-description"
+                        <p>JHSM Eldoret serves as the headquarters of Eldoret region, strategically located in the heart of Eldoret town. The church has become a spiritual beacon in the community, drawing people from surrounding areas to experience God's love and transformation.</p>
+                        <p>Under dedicated pastoral leadership, the church has grown significantly, with vibrant ministries for children, youth, and adults. The congregation is known for its passionate worship and commitment to community outreach.</p>
                     </div>
                 </div>
                 <div class="branch-image">
-                    <img src="images/region1.jpg" alt="JHSM Thua Church" class="branch-img">
+                    <img src="images/ld4.jpg" alt="JHSM Ikonge Church" class="branch-img">
                 </div>
             </div>
-
-            <div class="branch-profile">
-                <div class="branch-image">
-                    <img src="images/region2.jpg" alt="JHSM Itinda Church" class="branch-img">
-                </div>
-                <div class="branch-content">
-                    <h3 class="branch-name">JHSM Itinda</h3>
-                    <p class="branch-location">Itinda Branch</p>
-                    <div class="branch-description"></div>
-                </div>
             </div>
 
-            <div class="branch-profile">
-                <div class="branch-content">
-                    <h3 class="branch-name">JHSM Pst Paul</h3>
-                    <p class="branch-location">Branch</p>
-                    <div class="branch-description"></div>
-                </div>
-                <div class="branch-image">
-                    <img src="images/region3.jpg" alt="JHSM Mbeere Church" class="branch-img">
-                </div>
-            </div>
-
-            <div class="branch-profile">
-                <div class="branch-image">
-                    <img src="images/region4.jpg" alt="JHSM Branch" class="branch-img">
-                </div>
-                <div class="branch-content">
-                    <h3 class="branch-name">JHSM</h3>
-                    <p class="branch-location">Branch</p>
-                    <div class="branch-description"></div>
-                </div>
-            </div>
-
+            <!-- Closing Paragraph -->
             <div class="closing-paragraph">
-                <p>Through the tireless leadership of Rev. Peter Mutua, the Eastern Region of JHSM stands as a testimony of faith, excellence, and spiritual impact. Each church under his oversight contributes uniquely to the mission of spreading the Gospel and transforming lives across the region.</p>
+                <p>Through the tireless leadership of our regional overseer, the Eldoret Region of JHSM stands as a testimony of faith, excellence, and spiritual impact. Each church under this oversight contributes uniquely to the mission of spreading the Gospel and transforming lives across the region.</p>
             </div>
         </div>
     </section>
-
 
     <!-- Services Section -->
     <section class="services-section">
         <div class="container">
             <h2 class="section-title">Church Services</h2>
             <p class="section-subtitle">Join us for worship and fellowship throughout the week</p>
+            
             <div class="services-grid">
+
+                 <!-- Service 1 -->
                 <div class="service-card">
-                    <h3>WORD FEST</h3>
+                    <h3>WEEKLY FELLOWSHIP</h3>
                     <div class="service-time">
                         <span class="time-icon">⏰</span>
-                        <h4>EVERY WEDNESDAY</h4>
-                        <span>7:00 PM – 9:00 PM</span>
+                        <h4><span>EVERY Wednesday</span></h4>
                     </div>
+                    <span>5:00 PM - 7:00 PM</span>
                     <p>Where hearts are enlightened, minds are renewed, and purpose is discovered.</p>
                 </div>
+
+                <!-- Service 4 -->
                 <div class="service-card">
-                    <h3>FASTING &amp; PRAYER</h3>
+                    <h3>SUNDAY SCHOOL</h3>
                     <div class="service-time">
                         <span class="time-icon">⏰</span>
-                        <h4>EVERY FRIDAY</h4>
-                        <span>8:00 PM – 12:00 AM</span>
+                        <h4><span>EVERY SUNDAY</span></h4>
                     </div>
-                    <p>Raising a generation that tarries in His presence, hears His voice, and changes nations on their knees.</p>
-                </div>
-                <div class="service-card">
-                    <h3>CHOSEN HEIRS</h3>
-                    <div class="service-time">
-                        <span class="time-icon">⏰</span>
-                        <h4>EVERY SUNDAY</h4>
-                        <span>9:30 AM – 11:30 AM</span>
-                    </div>
-                    <p>Where little hearts learn big truths and grow in the love of Jesus.</p>
-                </div>
-                <div class="service-card">
-                    <h3>SUNDAY SERVICE</h3>
-                    <div class="service-time">
-                        <span class="time-icon">⏰</span>
-                        <h4>EVERY SUNDAY</h4>
-                        <span>7:00 AM – 9:30 AM</span>
-                    </div>
+                    <span>8:00 AM - 10:00 AM</span>
                     <p>Representing heaven on earth, carrying His light, love, and power everywhere we go.</p>
+                </div>
+
+                 <!-- Service 5 -->
+                <div class="service-card">
+                    <h3>MAIN SERVICE</h3>
+                    <div class="service-time">
+                        <span class="time-icon">⏰</span>
+                        <h4><span>EVERY SUNDAY</span></h4>
+                    </div>
+                    <span>10:00 AM - 2:00 PM</span>
+                    <p>A time to worship, be renewed, and encounter God's presence together</p>
                 </div>
             </div>
         </div>
     </section>
-
 
     <!-- Church Invite Flyer -->
     <section class="flyer-section">
@@ -849,41 +898,59 @@
                 <h2>Join Us This Sunday</h2>
                 <p>Experience the love of God and the power of His presence</p>
                 <div class="flyer-image">
-                    <img src="images/JHSM THUA.png" alt="Church Invitation Flyer" class="flyer-img">
+                    <img src="images/invite.jpg" alt="Church Invite" class="flyer-img">  
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- Contact Section -->
     <section class="con-section">
         <div class="con-container">
-            <h2>CONTACT INFO FOR EASTERN REGION</h2>
+            <h2>CONTACT INFO FOR ELDORET REGION</h2>
+            
             <div class="con-grid">
+                <!-- Get in Touch Card -->
                 <div class="con-card">
                     <h3>GET IN TOUCH</h3>
                     <div class="con-info">
-                        <p>Reverend Peter Mutua</p>
-                        <span class="con-phone">+254 727 572 621</span>
-                        <a href="mailto:jhsmkenya@gmail.com" class="con-email">jhsmkenya@gmail.com</a>
+                        <span class="con-phone">+254 -728-807-501</span>
+                        <a href="mailto:jhsmkenya@gmail.com" class="con-email">
+                            jhsmkenya@gmail.com
+                        </a>
+                        <p>For more enquiries +254 -728-807-501</p>
                     </div>
                 </div>
+                
+                <!-- Location Card -->
                 <div class="con-card">
                     <h3>LOCATION</h3>
                     <div class="con-info">
-                        <div class="con-location-table">
-                            <p><strong>JHSM THUA</strong></p>
-                            <p>Located in Mumoni sub-county, 200 Metres from Thua Town to your right.</p>
-                        </div>
+                        <table class="con-location-table">
+                            <tr>
+                                <p>JHSM ELDORET</p>
+                                <p>Located in Eldoret Town.</p>
+                            </tr>
+                        </table>
                     </div>
                 </div>
+                
+                <!-- Giving Details Card -->
                 <div class="con-card con-giving-details">
                     <h3>GIVING DETAILS</h3>
                     <div class="con-info">
                         <table class="con-giving-table">
-                            <tr><th>Paybill:</th><td>247247</td></tr>
-                            <tr><th>Account Number:</th><td>1100281008321</td></tr>
+                            <thead>
+                                <tr>
+                                    <th>Paybill:</th>
+                                    <td>247247</td>
+                                </tr>                             
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <th>Account Number:</th>
+                                    <td>1100281008321</td>
+                                </tr>
+                            </thead>
                         </table>
                     </div>
                 </div>
@@ -891,77 +958,115 @@
         </div>
     </section>
 
-
-    <!-- Map Section -->
-    <section class="map-section">
-        <div class="container">
-            <h2 class="map-title">Find Us Here</h2>
-            <div id="church-map" class="map-container"></div>
-            <div class="map-button-wrapper">
-                <a href="https://www.google.com/maps/dir/?api=1&destination=-0.5948408205282288,37.94991256971499" target="_blank" class="directions-btn">📍 Get Directions</a>
-            </div>
+  
+<!-- Map Section -->
+<section class="map-section">
+    <div class="container">
+        <h2 class="map-title">Find Us Here</h2>
+        <div id="church-map" class="map-container"></div>
+        <div class="map-button-wrapper">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=0.5127724093692062, 35.258588745048094" target="_blank" class="directions-btn">📍 Get Directions</a>
         </div>
-    </section>
-
-
-    <!-- Footer -->
-    <footer class="new-footer">
-        <div class="footer-container">
-            <div class="footer-verse">
-                "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future." – Jeremiah 29:11
-            </div>
-            <div class="footer-social">
-                <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook">&#xf09a;</a>
-                <a href="https://tiktok.com/yourpage" target="_blank" aria-label="TikTok">&#x54;</a>
-                <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram">&#xf16d;</a>
-                <a href="https://youtube.com/yourpage" target="_blank" aria-label="YouTube">&#xf167;</a>
-            </div>
-            <div class="footer-copyright">
-                <div class="ministry-name">JESUS HEALING SANCTUARY MINISTRIES</div>
-                <div class="copyright">© 2026 Jesus Healing Sanctuary Ministries. All rights reserved.</div>
-            </div>
+    </div>
+</section>
+   
+<footer class="new-footer">
+    <div class="footer-container">
+        <!-- Row 1: Bible verse -->
+        <div class="footer-verse">
+            “For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.” – Jeremiah 29:11
         </div>
-    </footer>
 
+        <!-- Row 2: Social media icons -->
+        <div class="footer-social">
+            <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://tiktok.com/yourpage" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://instagram.com/yourpage" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/yourpage" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <!-- Row 3: Ministry name and copyright -->
+        <div class="footer-copyright">
+            <div class="ministry-name">JESUS HEALING SANCTUARY MINISTRIES</div>
+            <div class="copyright">© 2026 Jesus Healing Sanctuary Ministries. All rights reserved.</div>
+        </div>
+    </div>
+</footer>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
+        // Image Slider Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const sliderContainer = document.querySelector('.slider-container');
+            let currentSlide = 0;
+            
+            // Function to show a specific slide
+            function showSlide(n) {
+                // Normalize index and update currentSlide
+                currentSlide = (n + slides.length) % slides.length;
 
-        // ── Slider ──────────────────────────────────────────────
-        const slides = document.querySelectorAll('.slide');
-        const dots   = document.querySelectorAll('.dot');
-        let current  = 0, timer;
+                // Move the slider container to show the selected slide
+                if (sliderContainer) {
+                    sliderContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+                }
 
-        function goTo(n) {
-            slides[current].classList.remove('active');
-            dots[current].classList.remove('active');
-            current = (n + slides.length) % slides.length;
-            slides[current].classList.add('active');
-            dots[current].classList.add('active');
-        }
+                // Update active classes for slides and dots (for accessibility/indicators)
+                slides.forEach((slide, idx) => {
+                    if (idx === currentSlide) slide.classList.add('active');
+                    else slide.classList.remove('active');
+                });
+                dots.forEach((dot, idx) => {
+                    if (idx === currentSlide) dot.classList.add('active');
+                    else dot.classList.remove('active');
+                });
+            }
+            
+            // Event listeners for buttons
+            prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+            nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+            
+            // Event listeners for dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => showSlide(index));
+            });
+            
+            // Initialize to first slide and auto slide every 5 seconds
+            showSlide(0);
+            setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+            
+            // Interactive map markers
+            const locationMarkers = document.querySelectorAll('.location-marker');
+            
+            locationMarkers.forEach(marker => {
+                marker.addEventListener('click', function() {
+                    const location = this.getAttribute('data-location');
+                    alert(`You selected ${location}. This would typically center the map on this location.`);
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+        // Updated coordinates
+        const lat = 0.5127724093692062;
+        const lng = 35.258588745048094;
 
-        function next() { goTo(current + 1); }
-
-        document.querySelector('.next-btn').addEventListener('click', () => { clearInterval(timer); next(); timer = setInterval(next, 5000); });
-        document.querySelector('.prev-btn').addEventListener('click', () => { clearInterval(timer); goTo(current - 1); timer = setInterval(next, 5000); });
-        dots.forEach((d, i) => d.addEventListener('click', () => { clearInterval(timer); goTo(i); timer = setInterval(next, 5000); }));
-        timer = setInterval(next, 5000);
-
-        // ── Map ──────────────────────────────────────────────────
-        const lat = -0.5948408205282288;
-        const lng =  37.94991256971499;
+        // Initialize map
         const map = L.map('church-map').setView([lat, lng], 16);
+
+        // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
+
+        // Add a marker
         L.marker([lat, lng]).addTo(map)
-            .bindPopup('<b>Jesus Healing Sanctuary Ministries</b><br>JHSM Thua')
+            .bindPopup('Jesus Healing Sanctuary Ministries')
             .openPopup();
     });
     </script>
-
-    <script src="main.js"></script>
-    <script src="kslider.js"></script>
-    <script src="regions.js"></script>
 </body>
 </html>
